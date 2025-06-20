@@ -13,16 +13,20 @@ return new class extends Migration {
         Schema::create('pendaftaran', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_lomba');
-            // $table->unsignedBigInteger('id_user'); // Menambahkan kolom id_user
+            $table->unsignedBigInteger('kategori_id');
             $table->string('nama_peserta');
             $table->string('email');
-            $table->string('no_hp');
-            $table->string('alamat');
+            $table->string('no_hp', 15);
+            $table->text('alamat'); 
             $table->string('asal_sekolah');
-            $table->string('nisn');
-            $table->enum('status_pembayaran', ['1', '2'])->default('1');
+            $table->string('nisn', 20)->unique(); 
+            $table->date('tanggal_lahir');
+            $table->enum('status_pembayaran', ['1', '2'])->default('1')->comment('1=Belum Bayar, 2=Sudah Bayar');
             $table->dateTime('tanggal_pendaftaran');
             $table->timestamps();
+
+            // Foreign key constraint
+            $table->foreign('id_lomba')->references('id')->on('lomba')->onDelete('cascade');
         });
     }
 

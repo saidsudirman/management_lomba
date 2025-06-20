@@ -27,5 +27,15 @@ class Lomba extends Model
     protected $casts = [
         'tanggal_mulai' => 'datetime',
     'tanggal_selesai' => 'datetime',
-];
+    ];
+
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class, 'kategori_id');
+    }
+
+    public function pendaftaran()
+    {
+        return $this->hasMany(Pendaftaran::class, 'id_lomba');
+    }
 }

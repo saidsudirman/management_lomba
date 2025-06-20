@@ -31,6 +31,7 @@
                                         <tr>
                                             <th class="text-center">No</th>
                                             <th class="text-center">Nama</th>
+                                            <th class="text-center">Kategori</th>
                                             <th class="text-center">Tanggal Mulai</th>
                                             <th class="text-center">Tanggal Selesai</th>
                                             <th class="text-center">Foto</th>
@@ -45,6 +46,7 @@
                                             <tr>
                                                 <td class="text-center">{{ ++$no }}</td>
                                                 <td class="text-center">{{ $lmb->nama }}</td>
+                                                <td class="text-center">{{ $lmb->kategori_id }}</td>
                                                 <td class="text-center">{{ $lmb->tanggal_mulai }}</td>
                                                 <td class="text-center">{{ $lmb->tanggal_selesai }}</td>
                                                 <td class="align-middle text-center"> <button data-toggle="modal"
@@ -55,9 +57,6 @@
                                                 <td class="text-center">{{ $lmb->deskripsi }}</td>
                                                 <td class="align-middle text-center">
                                                     <span>
-                                                        <button data-toggle="modal"
-                                                            data-target="#editUserModal{{ $lmb->id }}" type="button"
-                                                            class="btn btn-info">Edit</button>
                                                         <form id="deleteForm-{{ $lmb->id }}" method="post"
                                                             action="{{ route('lomba.destroy', $lmb->id) }}"
                                                             style="display:inline">
@@ -112,6 +111,15 @@
                             <div class="mb-3">
                                 <label for="nama" class="form-label">Nama Lomba</label>
                                 <input type="text" class="form-control" id="nama" name="nama" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="kategori_id">Kategori</label>
+                                <select class="form-control" name="kategori_id" id="kategori_id" required>
+                                    <option value="">-- Pilih Kategori --</option>
+                                    @foreach ($kategoris as $kategori)
+                                        <option value="{{ $kategori->id }}">{{ $kategori->nama_kategori }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="tanggal_mulai" class="form-label">Tanggal Mulai</label>

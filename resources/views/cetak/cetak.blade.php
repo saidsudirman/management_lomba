@@ -146,6 +146,7 @@
                 <li><strong>Nama Peserta:</strong> {{ $pendaftaran->nama_peserta }}</li>
                 <li><strong>Email:</strong> {{ $pendaftaran->email }}</li>
                 <li><strong>No. HP:</strong> {{ $pendaftaran->no_hp }}</li>
+                <li><strong>Tanggal Lahir:</strong> {{ $pendaftaran->tanggal_lahir }}</li>
                 <li><strong>Alamat:</strong> {{ $pendaftaran->alamat }}</li>
                 <li><strong>Asal Sekolah:</strong> {{ $pendaftaran->asal_sekolah }}</li>
                 <li><strong>NISN:</strong> {{ $pendaftaran->nisn }}</li>

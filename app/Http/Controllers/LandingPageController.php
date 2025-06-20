@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lomba;
+use App\Models\Kategori;
 use App\Models\Pembayaran;
 use App\Models\Pendaftaran;
 use Illuminate\Foundation\Auth\User;
@@ -19,8 +20,10 @@ class LandingPageController extends Controller
         $lombaCount = Lomba::count();
         $pendaftaranCount = Pendaftaran::count();
         $pembayaranCount = Pembayaran::count();
+        $kategoriCount = Kategori::count();
         $lombas = Lomba::all();
-        return view('landing.index', compact('usercount', 'lombaCount', 'pendaftaranCount', 'pembayaranCount', 'lombas'));
+        $kategoris = Kategori::all();
+        return view('landing.index', compact('usercount', 'lombaCount', 'pendaftaranCount', 'pembayaranCount', 'kategoriCount', 'lombas', 'kategoris'));
     }
 
     /**

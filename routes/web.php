@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CetakPendaftaranController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\DataPendaftaranController;
 use App\Http\Controllers\ForgotPassword;
 use App\Http\Controllers\LandingPageController;
@@ -30,6 +31,8 @@ Route::get('/tambah-data-pendaftaran', [DataPendaftaranController::class, 'creat
 Route::post('/tambah-data-pendaftarann', [DataPendaftaranController::class, 'storeLanding'])->name('pendaftaran.storeLanding');
 // Route::get('/data-pendaftarannya', [DataPendaftaranController::class, 'pendaftaranDetail'])->name('pendaftaran.indexlanding');
 Route::get('/detail-pendaftaran/{id}', [DataPendaftaranController::class, 'pendaftaranDetail'])->name('pendaftaran.detail');
+Route::get('/get-lomba-by-kategori/{id}', [\App\Http\Controllers\DataPendaftaranController::class, 'getLombaByKategori']);
+
 
 // Route::get('/tambah-data-pendaftarann', 'DataPendaftaranController@storeLanding')->name('pendaftaran.storeLanding');
 
@@ -66,10 +69,15 @@ Route::middleware(['role:admin'])->group(function () {
     Route::post('/lomba/{id}', [LombaController::class, 'update'])->name('lomba.update');
     Route::delete('/lomba/{id}', [LombaController::class, 'destroy'])->name('lomba.destroy');
 
+    Route::get('/kategori', [KategoriController::class, 'index'])->name('admin.kategori.index');
+    Route::post('/kategori', [KategoriController::class, 'store'])->name('admin.kategori.store');
+    Route::put('/admin/kategori/{kategori}', [KategoriController::class, 'update'])->name('admin.kategori.update');
+    Route::delete('/kategori/{kategori}', [KategoriController::class, 'destroy'])->name('admin.kategori.destroy');
+
     // Pendaftaran route
     Route::get('/data-pendaftaran', [DataPendaftaranController::class, 'index'])->name('pendaftaran.index');
     Route::post('/data-pendaftaran', [DataPendaftaranController::class, 'store'])->name('pendaftaran.store');
-    Route::post('/data-pendaftaran/{id}', [DataPendaftaranController::class, 'update'])->name('pendaftaran.update');
+    Route::put('/data-pendaftaran/{id}', [DataPendaftaranController::class, 'update'])->name('pendaftaran.update');
     Route::delete('/data-pendaftaran/{id}', [DataPendaftaranController::class, 'destroy'])->name('pendaftaran.destroy');
 
     // Pembayaran route

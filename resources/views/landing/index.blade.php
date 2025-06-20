@@ -8,7 +8,7 @@
         </style>
     @endpush
     <div class="banner-carousel banner-carousel-1 mb-0">
-        <div class="banner-carousel-item" style="background-image:url({{ asset('img/unsplash/lomba2.jpg') }})">
+        <div class="banner-carousel-item" style="background-image:url({{ asset('img/unsplash/gambar1.jpg.png') }})">
             <div class="slider-content">
                 <div class="container h-100">
                     <div class="row align-items-center h-100">
@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <div class="banner-carousel-item" style="background-image:url({{ asset('img/unsplash/lomba1.jpg') }})">
+        <div class="banner-carousel-item" style="background-image:url({{ asset('img/unsplash/gambar2.jpg.png') }})">
             <div class="slider-content text-left">
                 <div class="container h-100">
                     <div class="row align-items-center h-100">
@@ -43,7 +43,7 @@
             </div>
         </div>
 
-        <div class="banner-carousel-item" style="background-image:url({{ asset('img/unsplash/lomba3.jpg') }})">
+        <div class="banner-carousel-item" style="background-image:url({{ asset('img/unsplash/gambar3.jpg.png') }})">
             <div class="slider-content text-right">
                 <div class="container h-100">
                     <div class="row align-items-center h-100">
@@ -270,38 +270,34 @@
         </div>
         <!--/ Container end -->
     </section><!-- Service end -->
-<div class="container mt-4">
-    <div class="row justify-content-center">
-        @foreach ($lombas as $lomba)
-            <div class="col-md-4 mb-4 d-flex">
-                <div class="card shadow-sm w-100 text-center" style="border: none; border-radius: 10px; overflow: hidden;">
-                    @if ($lomba->foto)
-                        <img src="{{ asset($lomba->foto) }}" alt="{{ $lomba->nama }}" style="width: 100%; height: 200px; object-fit: cover;">
-                    @endif
+        <div class="container mt-4">
+            <div class="row justify-content-center">
+                @foreach ($lombas as $lomba)
+                    <div class="col-md-4 mb-4 d-flex">
+                        <div class="card shadow-sm w-100 text-center" style="border: none; border-radius: 10px; overflow: hidden;">
+                            @if ($lomba->foto)
+                                <img src="{{ asset($lomba->foto) }}" alt="{{ $lomba->nama }}" style="width: 100%; height: 200px; object-fit: cover;">
+                            @endif
 
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $lomba->nama }}</h5>
-                        <h7 class="card-title">{{ $lomba->harga }}</h7>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $lomba->nama }}</h5>
+                                <h7 class="card-title">{{ $lomba->harga }}</h7>
 
-                        <div class="d-flex justify-content-center text-muted mb-2" style="gap: 10px;">
-                            <small><i class="far fa-calendar-alt"></i> {{ \Carbon\Carbon::parse($lomba->tanggal_mulai)->format('d M') }}</small>
-                            <small><i class="fas fa-arrow-right"></i></small>
-                            <small><i class="far fa-calendar-check"></i> {{ \Carbon\Carbon::parse($lomba->tanggal_selesai)->format('d M Y') }}</small>
+                                <div class="d-flex justify-content-center text-muted mb-2" style="gap: 10px;">
+                                    <small><i class="far fa-calendar-alt"></i> {{ \Carbon\Carbon::parse($lomba->tanggal_mulai)->format('d M') }}</small>
+                                    <small><i class="fas fa-arrow-right"></i></small>
+                                    <small><i class="far fa-calendar-check"></i> {{ \Carbon\Carbon::parse($lomba->tanggal_selesai)->format('d M Y') }}</small>
+                                </div>
+
+                                <p class="card-text" style="font-size: 0.9rem;">
+                                    {{ Str::limit($lomba->deskripsi, 100) }}
+                                </p>
+                            </div>
                         </div>
-
-                        <p class="card-text" style="font-size: 0.9rem;">
-                            {{ Str::limit($lomba->deskripsi, 100) }}
-                        </p>
                     </div>
-                </div>
+                @endforeach
             </div>
-        @endforeach
-    </div>
-</div>
-
-
-
-
+        </div>
             </div><!-- Main row end -->
 
 

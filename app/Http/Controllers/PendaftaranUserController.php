@@ -37,6 +37,7 @@ class PendaftaranUserController extends Controller
             'alamat' => 'required',
             'nisn' => 'required',
             'id_lomba' => 'required',
+            'Ketegori_id' => 'required',
             'no_hp' => 'required',
             'asal_sekolah' => 'required',
         ]);

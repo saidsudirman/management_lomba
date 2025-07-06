@@ -51,7 +51,7 @@
                                                 <td class="text-center">{{ $pem->pendaftaran->nama_peserta }}</td>
                                                 <td class="text-center">Rp {{ number_format($pem->jumlah, 0, ',', '.') }}
                                                 </td>
-                                                <td class="text-center">{{ $pem->tanggal_pembayaran }}</td>
+                                                <td class="text-center">{{ $pem->tanggal_pembayaran }}</td> 
 
                                                 <td class="align-middle text-center">
                                                     <span>

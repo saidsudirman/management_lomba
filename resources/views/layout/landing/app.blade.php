@@ -6,7 +6,7 @@
     <!-- Basic Page Needs
 ================================================== -->
     <meta charset="utf-8">
-    <title>DIPA INNOVATION FEST</title>
+    <title>IMPAS DIPA</title>
 
     <!-- Mobile Specific Metas
 ================================================== -->
@@ -18,7 +18,7 @@
 
     <!-- Favicon
 ================================================== -->
-    <link rel="icon" type="image/png" href="{{ asset('/img/unsplash/LogoUndipa.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('/img/unsplash/logo impas-01.png') }}">
 
     <!-- CSS
 ================================================== -->

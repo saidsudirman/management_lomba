@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lomba;
-use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
@@ -12,9 +11,8 @@ class LombaController extends Controller
 {
     public function index()
     {
-        $lomba = Lomba::with('kategori')->get();
-        $kategoris = Kategori::all();
-        return view('admin.lomba', compact('lomba', 'kategoris'));
+        $lomba = Lomba::all();
+        return view('admin.lomba', compact('lomba'));
     }
 
     public function create(Request $request)
@@ -27,7 +25,6 @@ class LombaController extends Controller
                 'foto' => 'required|image|mimes:jpeg,png,jpg|max:2048',
                 'harga' => 'required|integer',
                 'deskripsi' => 'required',
-                'kategori_id' => 'required|exists:kategori,id',
             ]);
 
             if ($validator->fails()) {
@@ -48,7 +45,6 @@ class LombaController extends Controller
             $lomba->foto = $path ?? null;
             $lomba->harga = $request->input('harga');
             $lomba->deskripsi = $request->input('deskripsi');
-            $lomba->kategori_id = $request->input('kategori_id');
             $lomba->save();
 
             return redirect()->route('lomba.index')->with('notification', [
@@ -92,7 +88,6 @@ class LombaController extends Controller
                 'foto' => 'image|mimes:jpeg,png,jpg|max:2048',
                 'harga' => 'required|integer',
                 'deskripsi' => 'required',
-                'kategori_id' => 'required|exists:kategori,id',
             ]);
 
             if ($validator->fails()) {
@@ -107,11 +102,8 @@ class LombaController extends Controller
                 $foto->move(public_path('foto'), $fileName);
                 $path = 'foto/' . $fileName;
 
-                if ($lomba->foto) {
-                    $oldFilePath = public_path($lomba->foto);
-                    if (file_exists($oldFilePath)) {
-                        unlink($oldFilePath);
-                    }
+                if ($lomba->foto && file_exists(public_path($lomba->foto))) {
+                    unlink(public_path($lomba->foto));
                 }
 
                 $lomba->foto = $path;
@@ -122,7 +114,6 @@ class LombaController extends Controller
             $lomba->tanggal_selesai = $request->input('tanggal_selesai');
             $lomba->harga = $request->input('harga');
             $lomba->deskripsi = $request->input('deskripsi');
-            $lomba->kategori_id = $request->input('kategori_id');
             $lomba->save();
 
             return redirect()->route('lomba.index')->with('notification', [

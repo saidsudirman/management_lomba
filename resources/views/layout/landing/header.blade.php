@@ -5,7 +5,8 @@
                 <ul class="top-info text-center text-md-left">
                     <li>
                         <i class="fas fa-map-marker-alt"></i>
-                        <p class="info-text">Jl. Perintis Kemerdekaan, Tamalanrea Indah, Kec. Tamalanrea, Kota Makassar, Sulawesi Selatan</p>
+                        <p class="info-text">Jl.abdi Satya Bakti No No.AA.5, RT.001/RW.01, Tamalanrea, Kec. Tamalanrea, Kota Makassar
+</p>
                     </li>
                 </ul>
             </div>
@@ -13,17 +14,17 @@
 
             <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
                 <ul class="list-unstyled">
-                    <li>
-                        <a title="Facebook" href="https://www.facebook.com/">
-                            <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
+                    <div class="h-100 d-inline-flex align-items-center">
+                        <a class="btn btn-sm-square rounded-circle bg-white text-primary me-1" href="https://facebook.com/IMPAS.Dipanegara" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
                         </a>
-                        {{-- <a title="Twitter" href="https://twitter.com/themefisher.com">
-                            <span class="social-icon"><i class="fab fa-twitter"></i></span>
-                        </a> --}}
-                        <a title="Instagram" href="https://www.instagram.com/">
-                            <span class="social-icon"><i class="fab fa-instagram"></i></span>
+                        <a class="btn btn-sm-square rounded-circle bg-white text-primary me-1" href="https://youtube.com/@impasofficial7810" target="_blank">
+                            <i class="fab fa-youtube"></i>
                         </a>
-                    </li>
+                        <a class="btn btn-sm-square rounded-circle bg-white text-primary me-0" href="https://instagram.com/impasdipa_official" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
                 </ul>
             </div>
             <!--/ Top social end -->

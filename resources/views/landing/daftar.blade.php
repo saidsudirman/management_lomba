@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container py-5">
-    <h2 class="text-center mb-4">Formulir Pendaftaran Lomba</h2>
+    <h2 class="text-center mb-4">Pendaftaran IMPAS EDUCATION #13</h2>
     
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -48,15 +48,6 @@
 
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="nisn">NISN</label>
-                <input type="text" class="form-control @error('nisn') is-invalid @enderror" 
-                       id="nisn" name="nisn" value="{{ old('nisn') }}" required>
-                @error('nisn')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="form-group col-md-6">
                 <label for="tanggal_lahir">Tanggal Lahir</label>
                 <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror" 
                        id="tanggal_lahir" name="tanggal_lahir" value="{{ old('tanggal_lahir') }}" required>
@@ -64,22 +55,30 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
+
+            <div class="form-group col-md-6">
+                <label for="jenis_kelamin">Jenis Kelamin</label>
+                <select id="jenis_kelamin" name="jenis_kelamin" class="form-control @error('jenis_kelamin') is-invalid @enderror" required>
+                    <option value="">Pilih Jenis Kelamin</option>
+                    <option value="Laki-laki" {{ old('jenis_kelamin') == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
+                    <option value="Perempuan" {{ old('jenis_kelamin') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+                </select>
+                @error('jenis_kelamin')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="kategori_id">Kategori</label>
-                <select id="kategori_id" class="form-control" name="kategori_id" required>
-                    <option value="">Pilih Kategori</option>
-                    @foreach ($kategoris as $kategori)
-                        <option value="{{ $kategori->id }}">{{ $kategori->nama_kategori }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="form-group col-md-6">
-                <label for="id_lomba">Lomba</label>
+                <label for="id_lomba">Pilih Materi</label>
                 <select id="id_lomba" class="form-control @error('id_lomba') is-invalid @enderror" name="id_lomba" required>
-                    <option value="">Pilih Lomba</option>
+                    <option value="">Pilih Materi</option>
+                    @foreach ($lombas as $lomba)
+                        <option value="{{ $lomba->id }}" {{ old('id_lomba') == $lomba->id ? 'selected' : '' }}>
+                            {{ $lomba->nama }}
+                        </option>
+                    @endforeach
                 </select>
                 @error('id_lomba')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -106,38 +105,12 @@
         </div>
 
         <div class="alert alert-info mt-4">
-            <h6>Transfer ke Nomor Rekening Panitia: 1234567890</h6>
-            <p class="mb-0">Setelah mendaftar, silakan melakukan pembayaran untuk menyelesaikan proses pendaftaran.</p>
+            <p class="mb-0">Setelah mendaftar, Setalah itu Silahkan bawa kertas Pendaftaran ke stand dan juga membayar registrasi ikut kegiatan</p>
         </div>
 
         <button type="submit" class="btn btn-primary btn-block mt-3">
             <i class="fas fa-user-plus mr-2"></i> Daftarkan Sekarang
         </button>
     </form>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById('kategori_id').addEventListener('change', function () {
-                var kategoriId = this.value;
-                var selectLomba = document.getElementById('id_lomba');
-
-                // Kosongkan opsi dulu
-                selectLomba.innerHTML = '<option value="">Pilih Lomba</option>';
-
-                if (kategoriId) {
-                    fetch('/get-lomba-by-kategori/' + kategoriId)
-                        .then(response => response.json())
-                        .then(data => {
-                            data.forEach(function (lomba) {
-                                var option = document.createElement('option');
-                                option.value = lomba.id;
-                                option.text = lomba.nama;
-                                selectLomba.appendChild(option);
-                            });
-                        });
-                }
-            });
-        });
-    </script>
 </div>
 @endsection

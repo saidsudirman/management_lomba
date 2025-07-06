@@ -29,11 +29,6 @@ class Lomba extends Model
     'tanggal_selesai' => 'datetime',
     ];
 
-    public function kategori()
-    {
-        return $this->belongsTo(Kategori::class, 'kategori_id');
-    }
-
     public function pendaftaran()
     {
         return $this->hasMany(Pendaftaran::class, 'id_lomba');

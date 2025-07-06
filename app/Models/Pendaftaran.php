@@ -14,14 +14,13 @@ class Pendaftaran extends Model
 
     protected $fillable = [
         'id_lomba',
-        'kategori_id',
         'nama_peserta',
         'email',
         'no_hp',
+        'jenis_kelamin',
         'alamat',
         'asal_sekolah',
-        'nisn',
-        'tanggal_lahir', // Tambahkan ini
+        'tanggal_lahir',
         'status_pembayaran',
         'tanggal_pendaftaran',
     ];
@@ -32,7 +31,7 @@ class Pendaftaran extends Model
         'tanggal_pendaftaran' => 'datetime',
     ];
 
-    // Accessor untuk usia
+    // Accessor untuk menghitung usia
     public function getUsiaAttribute()
     {
         return Carbon::parse($this->tanggal_lahir)->age;
@@ -41,10 +40,5 @@ class Pendaftaran extends Model
     public function lomba()
     {
         return $this->belongsTo(Lomba::class, 'id_lomba');
-    }
-
-    public function kategori()
-    {
-        return $this->belongsTo(Lomba::class, 'kategori_id');
     }
 }

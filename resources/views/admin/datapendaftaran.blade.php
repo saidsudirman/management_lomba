@@ -39,12 +39,11 @@
                                         <th class="text-center">Nama Peserta</th>
                                         <th class="text-center">Email</th>
                                         <th class="text-center">No HP</th>
+                                        <th class="text-center">Jenis Kelamin</th>
                                         <th class="text-center">Tanggal Lahir</th>
                                         <th class="text-center">Alamat</th>
                                         <th class="text-center">Asal Sekolah</th>
                                         <th class="text-center">Id Lomba</th>
-                                        <th class="text-center">Nama kategori</th>
-                                        <th class="text-center">NISN</th>
                                         <th class="text-center">Status Pembayaran</th>
                                         <th class="text-center">Tanggal Pendaftaran</th>
                                         <th class="text-center">Action</th>
@@ -57,19 +56,17 @@
                                             <td class="text-center">{{ $pen->nama_peserta }}</td>
                                             <td class="text-center">{{ $pen->email }}</td>
                                             <td class="text-center">{{ $pen->no_hp }}</td>
+                                            <td class="text_center">{{ $pen->jenis_kelamin}}</td>
                                             <td class="text-center">{{ $pen->tanggal_lahir }}</td>
                                             <td class="text-center">{{ $pen->alamat }}</td>
                                             <td class="text-center">{{ $pen->asal_sekolah }}</td>
                                             <td class="text-center">{{ $pen->id_lomba }}</td>
-                                            <td class="text-center">{{ $pen->kategori_id }}</td>
-                                            <td class="text-center">{{ $pen->nisn }}</td>
                                             <td class="text-center">
                                                 @if ($pen->status_pembayaran == '1')
-                                                    <span class="badge badge-danger">Belum Bayar</span>
-                                                @else
-                                                    <span class="badge badge-success">Sudah Bayar</span>
+                                                    Belum Bayar
+                                                @elseif ($pen->status_pembayaran == '2')
+                                                    Sudah Bayar
                                                 @endif
-                                            </td>
                                             <td class="text-center">{{ $pen->tanggal_pendaftaran }}</td>
                                             <td class="align-middle text-center">
                                                 <button data-toggle="modal" data-target="#editPendaftaranModal{{ $pen->id }}" class="btn btn-info">Edit</button>
@@ -117,12 +114,12 @@
                                 <input type="text" name="alamat" class="form-control" value="{{ $pen->alamat }}">
                             </div>
                             <div class="form-group">
-                                <label>NISN</label>
-                                <input type="text" name="nisn" class="form-control" value="{{ $pen->nisn }}">
-                            </div>
-                            <div class="form-group">
                                 <label>Nomor Telepon</label>
                                 <input type="text" name="no_hp" class="form-control" value="{{ $pen->no_hp }}">
+                            </div>
+                            <div class="form-group">
+                                <label>Jenis Kelamin</label>
+                                <input type="text" name="jenis_kelamin" class="form-control" value="{{ $pen->jenis_kelamin }}">
                             </div>
                             <div class="form-group">
                                 <label>Asal Sekolah</label>

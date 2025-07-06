@@ -35,10 +35,10 @@ class PendaftaranUserController extends Controller
             'username' => 'required',
             'email' => 'required|email',
             'alamat' => 'required',
-            'nisn' => 'required',
             'id_lomba' => 'required',
             'Ketegori_id' => 'required',
             'no_hp' => 'required',
+            'jenis_kelamin'=> 'required',
             'asal_sekolah' => 'required',
         ]);
 
@@ -48,9 +48,9 @@ class PendaftaranUserController extends Controller
         $userpendaftaran->nama_peserta = $request->username;
         $userpendaftaran->email = $request->email;
         $userpendaftaran->alamat = $request->alamat;
-        $userpendaftaran->nisn = $request->nisn;
         $userpendaftaran->id_lomba = $request->id_lomba;
         $userpendaftaran->no_hp = $request->no_hp;
+        $userpendaftaran->jenis_kelamin = $request->jenis_kelamin;
         $userpendaftaran->asal_sekolah = $request->asal_sekolah;
         $userpendaftaran->tanggal_pendaftaran = Carbon::now(); // Menggunakan nilai saat ini
         $userpendaftaran->id_user = $user->id; // Menyimpan ID pengguna saat ini
@@ -71,9 +71,9 @@ class PendaftaranUserController extends Controller
             'username' => 'required',
             'email' => 'required|email',
             'alamat' => 'required',
-            'nisn' => 'required',
             'id_lomba' => 'required',
             'no_hp' => 'required',
+            'jenis_kelamin'=> 'required',
             'asal_sekolah' => 'required',
             // 'status_pembayaran' => 'required', // Tambahkan validasi status_pembayaran
         ]);
@@ -84,9 +84,9 @@ class PendaftaranUserController extends Controller
         $pendaftaran->nama_peserta = $request->username;
         $pendaftaran->email = $request->email;
         $pendaftaran->alamat = $request->alamat;
-        $pendaftaran->nisn = $request->nisn;
         $pendaftaran->id_lomba = $request->id_lomba;
         $pendaftaran->no_hp = $request->no_hp;
+        $pendaftaran->jenis_kelamin = $request->jenis_kelamin;
         $pendaftaran->asal_sekolah = $request->asal_sekolah;
         // $pendaftaran->status_pembayaran = $request->status_pembayaran; // Perbarui status_pembayaran
         $pendaftaran->tanggal_pendaftaran = Carbon::now(); // Menggunakan nilai saat ini

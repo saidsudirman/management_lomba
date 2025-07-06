@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lomba;
-use App\Models\Kategori;
 use App\Models\Pembayaran;
 use App\Models\Pendaftaran;
 use App\Models\Ketegori;
@@ -24,7 +23,6 @@ class DashboardController extends Controller
         $lombaCount = Lomba::count();
         $pendaftaranCount = Pendaftaran::count();
         $pembayaranCount = Pembayaran::count();
-        $kategoriCount = Kategori::count();
         $lombas = Lomba::all();
 
         // Data pendaftaran per bulan pada tahun ini
@@ -45,7 +43,7 @@ class DashboardController extends Controller
         // Mengubah format pendaftaranData menjadi array
         $pendaftaranDataArray = $pendaftaranData->pluck('total')->toArray();
 
-        return view('admin.dashboard', compact('usercount', 'lombaCount', 'pendaftaranCount', 'pembayaranCount', 'kategoriCount', 'pendaftaranDataArray', 'bulanLabels', 'lombas'));
+        return view('admin.dashboard', compact('usercount', 'lombaCount', 'pendaftaranCount', 'pembayaranCount', 'pendaftaranDataArray', 'bulanLabels', 'lombas'));
     }
 
     /**

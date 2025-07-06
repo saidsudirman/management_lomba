@@ -8,13 +8,13 @@
         </style>
     @endpush
     <div class="banner-carousel banner-carousel-1 mb-0">
-        <div class="banner-carousel-item" style="background-image:url({{ asset('img/unsplash/gambar1.jpg.png') }})">
+        <div class="banner-carousel-item" style="background-image:url({{ asset('img/unsplash/impas1.jpg') }})">
             <div class="slider-content">
                 <div class="container h-100">
                     <div class="row align-items-center h-100">
                         <div class="col-md-12 text-center">
-                            <h2 class="slide-title" data-animation-in="slideInLeft">Selamat Datang di</h2>
-                            <h3 class="slide-sub-title" data-animation-in="slideInRight">Perlombaan Undipa <br> Yang Sangat Keren
+                            <h2 class="slide-title" data-animation-in="slideInLeft">Selamat Datang Peserta</h2>
+                            <h3 class="slide-sub-title" data-animation-in="slideInRight">IMPAS EDUCATION #13
                             </h3>
                             <p data-animation-in="slideInLeft" data-duration-in="1.2">
                                 {{-- <a href="services.html" class="slider btn btn-primary">Our Services</a>
@@ -26,14 +26,14 @@
             </div>
         </div>
 
-        <div class="banner-carousel-item" style="background-image:url({{ asset('img/unsplash/gambar2.jpg.png') }})">
+        <div class="banner-carousel-item" style="background-image:url({{ asset('img/unsplash/impas2.jpg') }})">
             <div class="slider-content text-left">
                 <div class="container h-100">
                     <div class="row align-items-center h-100">
                         <div class="col-md-12">
-                            <h2 class="slide-title-box" data-animation-in="slideInDown">Siap Melayani Anda</h2>
-                            <h3 class="slide-title" data-animation-in="fadeIn">Untuk Pendaftaran Di Lomba</h3>
-                            <h3 class="slide-sub-title" data-animation-in="slideInLeft">Compitisi Unidpa</h3>
+                            <h2 class="slide-title-box" data-animation-in="slideInDown">Kami Siap Mengajar Teman-Teman</h2>
+                            <h3 class="slide-title" data-animation-in="fadeIn">Untuk Menambahkan Ilmu Di Dunia IT</h3>
+                            <h3 class="slide-sub-title" data-animation-in="slideInLeft"># IMPAS DIPA </h3>
                             <p data-animation-in="slideInRight">
                                 {{-- <a href="services.html" class="slider btn btn-primary border">Pelayanan Kami</a> --}}
                             </p>
@@ -43,16 +43,16 @@
             </div>
         </div>
 
-        <div class="banner-carousel-item" style="background-image:url({{ asset('img/unsplash/gambar3.jpg.png') }})">
+        <div class="banner-carousel-item" style="background-image:url({{ asset('img/unsplash/impas3.jpg') }})">
             <div class="slider-content text-right">
                 <div class="container h-100">
                     <div class="row align-items-center h-100">
                         <div class="col-md-12">
                             <h2 class="slide-title" data-animation-in="slideInDown">Segera Mendaftar</h2>
-                            <h3 class="slide-sub-title" data-animation-in="fadeIn">Tampilkan Bakat Terbaik Anda</h3>
+                            <h3 class="slide-sub-title" data-animation-in="fadeIn">Tambah Ilmu Anda di Sini</h3>
                             <p class="slider-description lead" data-animation-in="slideInRight">
-                                Kami akan mendukung Anda
-                                dalam meraih kesuksesan melalui pendidikan yang berkelanjutan.
+                                Kami akan mengajarkan Anda
+                                dalam meraih kesuksesan melalui pendidikan dan teknologi yang berkelanjutan.
                             </p>
                             <div data-animation-in="slideInLeft">
                             </div>
@@ -75,7 +75,7 @@
                     <div class="ts-service-box">
                         <div class="ts-service-image-wrapper">
                             <img loading="lazy" style="width: 250px" class="img img-fluid text-center mx-auto"
-                                src="{{ asset('landing/images/icon-slider/logo-berakhlak.png') }}" alt="logo berakhlak">
+                                src="{{ asset('img/logo1.png') }}" alt="logo berakhlak">
                         </div>
                     </div><!-- Service1 end -->
                 </div><!-- Col 1 end -->
@@ -83,7 +83,7 @@
                     <div class="ts-service-box">
                         <div class="ts-service-image-wrapper">
                             <img loading="lazy" style="width: 250px" class="img img-fluid text-center mx-auto"
-                                src="{{ asset('landing/images/icon-slider/logo-bangga-melayani.png') }}"
+                                src="{{ asset('img/logo-kiri.png') }}"
                                 alt="logo bangga melayani">
                         </div>
                     </div><!-- Service1 end -->
@@ -92,7 +92,7 @@
                     <div class="ts-service-box">
                         <div class="ts-service-image-wrapper">
                             <img loading="lazy" style="width: 250px" class="img img-fluid text-center mx-auto"
-                                src="{{ asset('landing/images/icon-slider/sehat-tanpa-korupsi.png') }}"
+                                src="{{ asset('img/logo2.jpeg') }}"
                                 alt="logo sehat tanpa korupsi">
                         </div>
                     </div><!-- Service1 end -->
@@ -101,7 +101,7 @@
                     <div class="ts-service-box">
                         <div class="ts-service-image-wrapper">
                             <img loading="lazy" style="width: 250px" class="img img-fluid text-center mx-auto"
-                                src="{{ asset('landing/images/icon-slider/kami-siap-zi-wbk.png') }}"
+                                src="{{ asset('img/logo3.png') }}"
                                 alt="logo kami siap zi wbk">
                         </div>
                     </div><!-- Service1 end -->
@@ -127,9 +127,12 @@
                 <div class="col-lg-12">
                     <div class="ts-intro">
                         <h2 class="into-title">Tentang Kami</h2>
-                        <h3 class="into-sub-title">Perlombaan</h3>
+                        <h3 class="into-sub-title">IMPAS DIPA</h3>
                         <p class="my-sub-content">
-                            Undipa adalah kompetisi bergengsi tingkat nasional yang bertujuan untuk menggali dan mengembangkan potensi berpikir kritis serta kreativitas mahasiswa dalam menyusun karya ilmiah yang solutif dan inovatif. Melalui lomba ini, peserta diajak untuk berkontribusi aktif dalam menjawab tantangan masa kini di bidang pendidikan, teknologi, kesehatan, lingkungan, dan sosial budaya.
+                            Ikatan Mahasiswa Papua Universitas Dipa Makassar (IMPAS DIPA) didirikan sebagai wadah kebersamaan, pengembangan diri, dan perjuangan mahasiswa Papua yang menempuh pendidikan di Universitas Dipa Makassar. Organisasi ini lahir dari semangat solidaritas dan kebutuhan akan ruang untuk saling mendukung di tengah perantauan, khususnya dalam menghadapi tantangan akademik, sosial, dan budaya.
+
+IMPAS DIPA berdiri dengan tujuan utama mempererat tali persaudaraan antar mahasiswa Papua, menjaga identitas budaya, serta mendorong partisipasi aktif dalam kegiatan intelektual dan kemasyarakatan di lingkungan kampus maupun di luar. Sejak awal berdirinya, IMPAS DIPA telah menjadi rumah bagi para mahasiswa untuk bertumbuh secara akademis dan sosial, serta menjadi jembatan antara mahasiswa Papua dan berbagai elemen di Universitas Dipa Makassar.
+
 
                         </p>
                     </div><!-- Intro box end -->
@@ -175,7 +178,7 @@
                         </div>
                         <div class="text-center">
                             <div class="ts-service-info">
-                                <h3 class="service-box-title"><a href="service-single.html">Lihat Lomba</a></h3>
+                                <h3 class="service-box-title"><a href="service-single.html">Lihat Materi</a></h3>
 
                             </div>
                         </div>
@@ -191,7 +194,7 @@
                         </div>
                         <div class="text-center">
                             <div class="ts-service-info">
-                                <h3 class="service-box-title"><a href="#">Daftar Lomba</a></h3>
+                                <h3 class="service-box-title"><a href="#">Daftar Kegiatan</a></h3>
 
                             </div>
                         </div>
@@ -208,7 +211,7 @@
                         <div class="text-center">
                             <div class="ts-service-info">
                                 <h3 class="service-box-title"><a
-                                        href="https://sites.google.com/instruktur.belajar.id/ult-RPPHsulsel">Pembayaran</a></h3>
+                                        href="https://sites.google.com/instruktur.belajar.id/ult-RPPHsulsel">Print Hasil Daftar</a></h3>
 
                             </div>
                         </div>
@@ -224,7 +227,7 @@
                         </div>
                         <div class="text-center">
                             <div class="ts-service-info">
-                                <h3 class="service-box-title"><a href="#">Print Hasil Daftar</a></h3>
+                                <h3 class="service-box-title"><a href="#">Pergi Ke Stand</a></h3>
 
                             </div>
                         </div>
@@ -240,7 +243,7 @@
                         </div>
                         <div class="text-center">
                             <div class="ts-service-info">
-                                <h3 class="service-box-title"><a href="#">Datang Ke lokasi</a></h3>
+                                <h3 class="service-box-title"><a href="#">Pembayaran</a></h3>
 
                             </div>
                         </div>
@@ -256,7 +259,7 @@
                         </div>
                         <div class="text-center">
                             <div class="ts-service-info">
-                                <h3 class="service-box-title"><a href="#">ferifikasi Data</a></h3>
+                                <h3 class="service-box-title"><a href="#">Ikut Materi</a></h3>
 
                             </div>
                         </div>

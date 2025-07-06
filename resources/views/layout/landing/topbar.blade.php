@@ -7,7 +7,7 @@
                     <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
                         <a class="d-block" href="/">
                             <img style="width:auto; height:80px" 
-                                src="{{ asset('/img/unsplash/LogoUndipa.png') }}" alt="BBGP SulSel">
+                                src="{{ asset('/img/unsplash/logo impas-01.png') }}" alt="BBGP SulSel">
                         </a>
                     </div><!-- logo end -->
 
@@ -17,15 +17,7 @@
                                 <div class="info-box">
                                     <div class="info-box-content">
                                         <p class="info-box-title">Hubungi Kami</p>
-                                        <p class="info-box-subtitle">+1 877-224-1042 </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="last">
-                                <div class="info-box last">
-                                    <div class="info-box-content">
-                                        <p class="info-box-title">Fax</p>
-                                        <p class="info-box-subtitle">0411-8890098</p>
+                                        <p class="info-box-subtitle">+62 821-9930-2868</p>
                                     </div>
                                 </div>
                             </li>
@@ -33,7 +25,7 @@
                                 <div class="info-box">
                                     <div class="info-box-content">
                                         <p class="info-box-title">Instagram Kami</p>
-                                        <p class="info-box-subtitle">undipamks
+                                        <p class="info-box-subtitle">impasdipa_official
                                         </p>
                                     </div>
                                 </div>

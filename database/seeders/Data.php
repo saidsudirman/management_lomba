@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -15,24 +14,10 @@ class Data extends Seeder
      */
     public function run(): void
     {
-        // Hapus data yang ada terlebih dahulu untuk menghindari duplikasi
+        // Kosongkan tabel untuk mencegah duplikasi
+        DB::table('pendaftaran')->delete();
         DB::table('lomba')->delete();
-        DB::table('kategori')->delete();
         DB::table('users')->delete();
-
-        // Seed tabel kategoris
-        $kategoriIds = DB::table('kategori')->insert([
-            [
-                'nama_kategori' => 'Robotik',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'nama_kategori' => 'Teknologi',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ]
-        ]);
 
         // Seed tabel users
         DB::table('users')->insert([
@@ -65,61 +50,59 @@ class Data extends Seeder
             ],
         ]);
 
+        // Seed tabel lomba
         DB::table('lomba')->insert([
             [
-                'nama' => 'Desain',
+                'nama' => 'Canva',
                 'tanggal_mulai' => '2023-06-01',
                 'tanggal_selesai' => '2023-06-10',
-                'foto' => 'foto/1685037801.jpg',
+                'foto' => 'img/unsplash/materi1.jpg',
                 'harga' => 100000,
-                'kategori_id' => 1,
-                'deskripsi' => 'Lomba Poster merupakan lomba yang mewadahi kreatifitas di bidang desain grafis yang nantinya diharapkan dapat meningkatkan minat dan motivasi dalam berkarya dan memberi informasi kepada pelajar atau masyarakat umum dalam bentuk poster.',
+                'deskripsi' => 'Canva adalah platform desain grafis berbasis web yang memungkinkan pengguna membuat berbagai jenis desain seperti poster, presentasi, logo, media sosial, kartu undangan, dan lainnya dengan mudah. Canva menyediakan ribuan template siap pakai, elemen desain (ikon, foto, font), serta fitur drag-and-drop, sehingga cocok digunakan oleh pemula maupun profesional tanpa perlu keahlian desain khusus',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'nama' => 'Competitive Programming',
+                'nama' => 'HTML (HyperText Markup Language)',
                 'tanggal_mulai' => '2023-07-01',
                 'tanggal_selesai' => '2023-07-10',
-                'foto' => 'foto/1684989591.jpg',
+                'foto' => 'img/unsplash/materi2.jpg',
                 'harga' => 150000,
-                'kategori_id' => 2,
-                'deskripsi' => 'Competitive Programming adalah salah satu cabang kompetisi pemrograman yang bertujuan untuk menguji kemampuan analisis pemecahan masalah dan berpikir komputasional dengan cara menyelesaikan persoalan yang diberikan dengan bahasa pemrograman tertentu dalam batasan waktu dan memori yang telah ditentukan.',
+                'deskripsi' => 'HTML (HyperText Markup Language) adalah bahasa standar yang digunakan untuk membuat dan menyusun halaman web. HTML berfungsi untuk menentukan struktur dan isi dari sebuah halaman, seperti teks, gambar, tautan, tabel, dan elemen lainnya. ',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'nama' => 'Lomba Robot',
+                'nama' => 'CSS (Cascading Style Sheets)',
                 'tanggal_mulai' => '2023-08-01',
                 'tanggal_selesai' => '2023-08-10',
-                'foto' => 'foto/1685037801.jpg',
+                'foto' => 'img/unsplash/materi3.jpg',
                 'harga' => 200000,
-                'kategori_id' => 1,
-                'deskripsi' => 'Lomba desain dan pemrograman robot untuk siswa SMA/SMK. Peserta diharuskan membuat robot yang dapat menyelesaikan berbagai tantangan menarik.',
+                'deskripsi' => 'CSS (Cascading Style Sheets) adalah bahasa pemrograman yang digunakan untuk mengatur tampilan dan gaya elemen dalam halaman web.',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'nama' => 'Aplikasi Inovatif',
+                'nama' => 'Microsoft Office ',
                 'tanggal_mulai' => '2023-09-01',
                 'tanggal_selesai' => '2023-09-10',
-                'foto' => 'foto/1685037801.jpg',
+                'foto' => 'img/unsplash/materi4.jpg',
                 'harga' => 175000,
-                'kategori_id' => 2,
-                'deskripsi' => 'Lomba pengembangan aplikasi inovatif yang dapat menyelesaikan masalah sehari-hari menggunakan teknologi terkini.',
+                'deskripsi' => 'Microsoft Office adalah sebuah paket aplikasi produktivitas buatan Microsoft yang terdiri dari berbagai program seperti Word, Excel, PowerPoint, Outlook, dan lainnya.',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]
         ]);
 
+        // Seed tabel pendaftaran
         DB::table('pendaftaran')->insert([
             [
-                'nama_peserta' => 'Budi Santoso',
-                'email' => 'budi@example.com',
+                'nama_peserta' => 'Sepbrian Apbraham',
+                'email' => 'dwi@gmail.com',
                 'no_hp' => '081234567890',
-                'alamat' => 'Jl. Merdeka No. 10',
-                'asal_sekolah' => 'SMA Negeri 1 Jakarta',
-                'nisn' => '1234567890',
+                'jenis_kelamin' => 'Laki-laki',
+                'alamat' => 'Jln. Btpn No. 5',
+                'asal_sekolah' => 'SMA Negeri 1 Biak',
                 'tanggal_lahir' => '2000-05-15',
                 'id_lomba' => 1,
                 'status_pembayaran' => '2', // Sudah Bayar
@@ -128,14 +111,14 @@ class Data extends Seeder
                 'updated_at' => Carbon::now()
             ],
             [
-                'nama_peserta' => 'Ani Wijaya',
-                'email' => 'ani@example.com',
+                'nama_peserta' => 'Chindy Lindang',
+                'email' => 'cindy@gmail.com',
                 'no_hp' => '082345678901',
+                'jenis_kelamin' => 'Perempuan',
                 'alamat' => 'Jl. Sudirman No. 20',
-                'asal_sekolah' => 'SMA Negeri 2 Bandung',
-                'nisn' => '2345678901',
+                'asal_sekolah' => 'SMA Negeri 2 Timika',
                 'tanggal_lahir' => '2001-08-20',
-                'id_lomba' => 2, 
+                'id_lomba' => 2,
                 'status_pembayaran' => '1', // Belum Bayar
                 'tanggal_pendaftaran' => Carbon::now()->subDays(3),
                 'created_at' => Carbon::now(),

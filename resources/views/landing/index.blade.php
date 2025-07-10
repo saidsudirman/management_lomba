@@ -296,6 +296,9 @@ IMPAS DIPA berdiri dengan tujuan utama mempererat tali persaudaraan antar mahasi
                                     {{ Str::limit($lomba->deskripsi, 100) }}
                                 </p>
                             </div>
+                            <div class="card-footer bg-transparent border-top-0">
+                                <a href="{{ route('materi.detail', $lomba->id) }}" class="btn btn-link px-0">Baca Selengkapnya <i class="fas fa-arrow-right ms-2"></i></a>
+                            </div>
                         </div>
                     </div>
                 @endforeach

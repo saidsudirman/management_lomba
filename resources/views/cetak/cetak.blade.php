@@ -177,8 +177,8 @@
             <li><strong>Biaya Administrasi:</strong> Rp {{ number_format($pendaftaran->lomba->harga, 0, ',', '.') }}</li>
             @endif
             <li><strong>Status Pembayaran:</strong> 
-                <span style="color: {{ $pendaftaran->status_pembayaran == 2 ? '#e74c3c' : '#27ae60' }}">
-                    {{ $pendaftaran->status_pembayaran == 2 ? 'Belum Bayar' : 'Sudah Bayar' }}
+                <span style="color: {{ $pendaftaran->status_pembayaran == 1 ? '#e74c3c' : '#27ae60' }}">
+                    {{ $pendaftaran->status_pembayaran == 1 ? 'Belum Bayar' : 'Sudah Bayar' }}
                 </span>
             </li>
             <li><strong>Tanggal Pendaftaran:</strong> {{ $pendaftaran->tanggal_pendaftaran->format('d M Y H:i') }}</li>

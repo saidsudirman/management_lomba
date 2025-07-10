@@ -4,106 +4,35 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
 
-
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Menampilkan daftar seluruh user.
      */
     public function index()
     {
-        $admin = User::where('role','admin')->get();
+        $admin = User::all(); // Tampilkan semua user, tanpa filter 'role'
         return view('admin.user', compact('admin'));
     }
 
-
     /**
-     * Show the form for creating a new resource.
+     * Menampilkan form tambah user (jika diperlukan).
      */
-
-    public function create(Request $request)
+    public function create()
     {
-        try {
-            // Validasi input pengguna
-            $validator = Validator::make($request->all(), [
-                'username' => 'required|string|max:255',
-                'email' => 'required|email|unique:users,email',
-                'password' => 'required|string|min:8',
-                'role' => 'required|in:admin',
-            ]);
-
-            // Jika validasi gagal, kembalikan respon dengan pesan error dan informasi yang kurang
-            if ($validator->fails()) {
-                $errors = $validator->errors();
-                $errorMessage = '';
-
-                if ($errors->has('username')) {
-                    $errorMessage .= 'Username is required. ';
-                }
-
-                if ($errors->has('email')) {
-                    $errorMessage .= 'Email is required. ';
-                }
-
-                if ($errors->has('password')) {
-                    $errorMessage .= 'Password is required and must be at least 8 characters. ';
-                }
-
-                // Tampilkan notifikasi Swal.fire dengan pesan error dan informasi yang kurang
-                $notification = [
-                    'title' => 'Oops!',
-                    'text' => $errorMessage,
-                    'type' => 'error',
-                ];
-
-                return redirect()->back()->with('notification', $notification)->withInput();
-            }
-
-            // Buat data pengguna baru
-            $admin = new User();
-            $admin->username = $request->input('username');
-            $admin->email = $request->input('email');
-            $admin->password = bcrypt($request->input('password'));
-            $admin->save();
-
-            // Tampilkan notifikasi Swal.fire
-            $notification = [
-                'title' => 'Selamat!',
-                'text' => 'Data pengguna berhasil ditambahkan',
-                'type' => 'success',
-            ];
-
-            return redirect()->route('user.index')->with('notification', $notification);
-        } catch (\Exception $e) {
-            // Log error jika terjadi kesalahan
-            Log::error($e->getMessage());
-
-            // Tampilkan notifikasi Swal.fire
-            $notification = [
-                'title' => 'Oops!',
-                'text' => 'Terjadi kesalahan saat menambahkan data pengguna',
-                'type' => 'error',
-            ];
-
-            return redirect()->back()->with('notification', $notification)->withInput();
-        }
+        return view('admin.user-create');
     }
 
-
-
-
     /**
-     * Store a newly created resource in storage.
+     * Menyimpan data user baru.
      */
     public function store(Request $request)
     {
         try {
-            // Validasi input pengguna
             $validator = Validator::make($request->all(), [
                 'username' => 'required|string|max:255|unique:users,username',
                 'email' => 'required|email|unique:users,email',
@@ -116,165 +45,111 @@ class UserController extends Controller
                     ->withInput();
             }
 
-            // Simpan admin baru
-            $admin = new User();
-            $admin->username = $request->input('username');
-            $admin->email = $request->input('email');
-            $admin->password = bcrypt($request->input('password'));
-            $admin->save();
+            User::create([
+                'username' => $request->username,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
 
-            return redirect()->route('user.index')->with('success', 'Admin berhasil ditambahkan.');
+            return redirect()->route('user.index')->with('success', 'User berhasil ditambahkan.');
         } catch (\Exception $e) {
-            \Log::error($e->getMessage());
+            Log::error($e->getMessage());
             return redirect()->back()->with('error', 'Terjadi kesalahan saat menyimpan data.');
         }
     }
 
-
     /**
-     * Display the specified resource.
+     * Menampilkan form edit user.
      */
-    public function updateProfile(Request $request)
+    public function edit($id)
     {
-        try {
-            // Validasi input pengguna
-            $validator = Validator::make($request->all(), [
-                'username' => 'required|string|max:255',
-                'email' => 'required|email|unique:users,email,' . auth()->id(),
-                'password' => 'nullable|string|min:8',
-            ]);
-
-            // Jika validasi gagal, kembalikan respon dengan pesan error
-            if ($validator->fails()) {
-                $errors = $validator->errors()->all();
-
-                // Tampilkan notifikasi Swal.fire dengan pesan validasi
-                $notification = [
-                    'title' => 'Oops!',
-                    'text' => 'Terjadi kesalahan saat memperbarui data pengguna',
-                    'type' => 'error',
-                    'validation' => $errors,
-                ];
-
-                return redirect()->back()->with('notification', $notification)->withInput();
-            }
-
-            // Temukan pengguna yang sedang login
-            $admin = auth()->user();
-
-            // Update data pengguna
-            $admin->username = $request->input('username');
-            $admin->email = $request->input('email');
-
-            // Periksa apakah ada input password baru
-            if ($request->filled('password')) {
-                $admin->password = bcrypt($request->input('password'));
-            }
-
-            $admin->save();
-
-            return redirect()->route('dashboard.index')->with('success', 'Data pengguna berhasil diperbarui');
-        } catch (\Exception $e) {
-            dd($e->getMessage()); // Tambahkan ini untuk mencetak pesan error
-
-            // Tampilkan notifikasi Swal.fire dengan pesan error umum
-            $notification = [
-                'title' => 'Oops!',
-                'text' => 'Terjadi kesalahan saat memperbarui data pengguna',
-                'type' => 'error',
-            ];
-
-            return redirect()->back()->with('notification', $notification)->withInput();
-        }
-    }
-
-
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
+        $admin = User::findOrFail($id);
+        return view('admin.user-edit', compact('admin'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Menyimpan perubahan data user.
      */
-
-
     public function update(Request $request, $id)
     {
         try {
-            // Validasi input pengguna
             $validator = Validator::make($request->all(), [
                 'username' => 'required|string|max:255',
                 'email' => 'required|email|unique:users,email,' . $id,
                 'password' => 'nullable|string|min:8',
             ]);
 
-            // Jika validasi gagal, kembalikan respon dengan pesan error
             if ($validator->fails()) {
-                $errors = $validator->errors()->all();
-
-                // Tampilkan notifikasi Swal.fire dengan pesan validasi
-                $notification = [
-                    'title' => 'Oops!',
-                    'text' => 'Terjadi kesalahan saat memperbarui data pengguna',
-                    'type' => 'error',
-                    'validation' => $errors,
-                ];
-
-                return redirect()->back()->with('notification', $notification)->withInput();
+                return redirect()->back()
+                    ->withErrors($validator)
+                    ->withInput();
             }
 
-            // Temukan pengguna berdasarkan ID
             $admin = User::findOrFail($id);
+            $admin->username = $request->username;
+            $admin->email = $request->email;
 
-            // Update data pengguna
-            $admin->username = $request->input('username');
-            $admin->email = $request->input('email');
-
-            // Periksa apakah ada input password baru
             if ($request->filled('password')) {
-                $admin->password = bcrypt($request->input('password'));
+                $admin->password = Hash::make($request->password);
             }
 
             $admin->save();
 
-            return redirect()->route('user.index')->with('success', 'Data pengguna berhasil diperbarui');
+            return redirect()->route('user.index')->with('success', 'Data user berhasil diperbarui.');
         } catch (\Exception $e) {
             Log::error($e);
-
-            // Tampilkan notifikasi Swal.fire dengan pesan error umum
-            $notification = [
-                'title' => 'Oops!',
-                'text' => 'Terjadi kesalahan saat memperbarui data pengguna',
-                'type' => 'error',
-            ];
-
-            return redirect()->back()->with('notification', $notification)->withInput();
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat memperbarui data.');
         }
     }
 
-
-
     /**
-     * Remove the specified resource from storage.
+     * Menghapus user.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        $admin = User::findOrFail($id);
+        try {
+            $admin = User::findOrFail($id);
+            $admin->delete();
 
-        $admin->delete();
-
-        $notification = [
-            'title' => 'Selamat!',
-            'text' => 'Data pengguna berhasil dihapus',
-            'type' => 'success',
-        ];
-
-        return redirect()->route('user.index')->with('notification', $notification)->withInput();
+            return redirect()->route('user.index')->with('success', 'User berhasil dihapus.');
+        } catch (\Exception $e) {
+            Log::error($e);
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat menghapus user.');
+        }
     }
 
+    /**
+     * Update profil user yang sedang login.
+     */
+    public function updateProfile(Request $request)
+    {
+        try {
+            $validator = Validator::make($request->all(), [
+                'username' => 'required|string|max:255',
+                'email' => 'required|email|unique:users,email,' . auth()->id(),
+                'password' => 'nullable|string|min:8',
+            ]);
+
+            if ($validator->fails()) {
+                return redirect()->back()
+                    ->withErrors($validator)
+                    ->withInput();
+            }
+
+            $user = auth()->user();
+            $user->username = $request->username;
+            $user->email = $request->email;
+
+            if ($request->filled('password')) {
+                $user->password = Hash::make($request->password);
+            }
+
+            $user->save();
+
+            return redirect()->route('dashboard.index')->with('success', 'Profil berhasil diperbarui.');
+        } catch (\Exception $e) {
+            Log::error($e);
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat memperbarui profil.');
+        }
+    }
 }

@@ -31,8 +31,8 @@ class Data extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'username' => 'alif',
-                'email' => 'alif@gmail.com',
+                'username' => 'Cai',
+                'email' => 'cai@gmail.com',
                 'password' => Hash::make('12345678'),
                 'status' => '1',
                 'email_verified_at' => now(),
@@ -40,8 +40,8 @@ class Data extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'username' => 'Rizqi',
-                'email' => 'semuamana@gmail.com',
+                'username' => 'Dwi',
+                'email' => 'dwi@gmail.com',
                 'password' => Hash::make('12345678'),
                 'status' => '1',
                 'email_verified_at' => now(),

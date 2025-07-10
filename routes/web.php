@@ -31,6 +31,9 @@ Route::post('/tambah-data-pendaftarann', [DataPendaftaranController::class, 'sto
 // Route::get('/data-pendaftarannya', [DataPendaftaranController::class, 'pendaftaranDetail'])->name('pendaftaran.indexlanding');
 Route::get('/detail-pendaftaran/{id}', [DataPendaftaranController::class, 'pendaftaranDetail'])->name('pendaftaran.detail');
 
+Route::get('/materi', [LandingPageController::class, 'tampilkanMateri'])->name('materi');
+Route::get('/materi/{id}', [LandingPageController::class, 'detailMateri'])->name('materi.detail');
+
 
 // Route::get('/tambah-data-pendaftarann', 'DataPendaftaranController@storeLanding')->name('pendaftaran.storeLanding');
 

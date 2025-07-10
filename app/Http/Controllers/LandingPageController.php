@@ -25,4 +25,30 @@ class LandingPageController extends Controller
             'usercount', 'lombaCount', 'pendaftaranCount', 'pembayaranCount', 'lombas'
         ));
     }
+
+
+    public function tampilkanMateri()
+    {
+        $Lombas = Lomba::all();
+
+        return view('landing.index', [
+            "title" => "Materi Impas",
+            "Lombas" => $Lombas
+        ]);
+    }
+
+    public function detailMateri($id)
+    {
+        $Lomba = Lomba::findOrFail($id);
+        $LombaTerbaru = Lomba::where('id', '!=', $id)
+            ->latest()
+            ->take(3)
+            ->get();
+
+        return view('materi', [
+            "title" => $Lomba->nama,
+            "Lomba" => $Lomba,
+            "LombaTerbaru" => $LombaTerbaru
+        ]);
+    }
 }

@@ -13,12 +13,12 @@
 
                         <div class="text-right mb-3">
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">
-                                Tambah Lomba
+                                Tambah Materi
                             </button>
                         </div>
 
                         <div class="mb-3">
-                            <input id="searchInput" class="form-control" type="search" placeholder="Cari Lomba" aria-label="Search">
+                            <input id="searchInput" class="form-control" type="search" placeholder="Cari Materi" aria-label="Search">
                         </div>
 
                         <div class="table-responsive">
@@ -80,14 +80,14 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Tambah Lomba</h5>
+                                        <h5 class="modal-title">Tambah Materi</h5>
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     </div>
                                     <form action="{{ route('lomba.create') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="modal-body">
                                             <div class="form-group">
-                                                <label>Nama Lomba</label>
+                                                <label>Nama Materi</label>
                                                 <input type="text" name="nama" class="form-control" required>
                                             </div>
                                             <div class="form-group">

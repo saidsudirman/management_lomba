@@ -145,7 +145,7 @@
         </div>
 
         <!-- Logo kanan -->
-        <img src="{{ asset('img/logo-kanan.png') }}" alt="Logo Kanan" class="img-logo">
+        <!-- <img src="{{ asset('img/logo-kanan.png') }}" alt="Logo Kanan" class="img-logo"> -->
     </div>
 
     <div class="letter-content">
@@ -188,7 +188,7 @@
         <p>Terima kasih atas partisipasi Anda.</p>
 
         <div class="ttd-container">
-            <img src="{{ asset('img/ttd.png') }}" alt="ttd" class="ttd">
+            <img src="{{ asset('img/tanda_tangan.png') }}" alt="ttd" class="ttd">
             <br>
             <p>Hormat kami,</p>
             <p>IMPAS DIPA</p>

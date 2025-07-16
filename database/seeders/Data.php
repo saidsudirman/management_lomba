@@ -22,9 +22,9 @@ class Data extends Seeder
         // Seed tabel users
         DB::table('users')->insert([
             [
-                'username' => 'admin',
-                'email' => 'admin@gmail.com',
-                'password' => Hash::make('12345678'),
+                'username' => 'impas',
+                'email' => 'impas@gmail.com',
+                'password' => Hash::make('impasss123'),
                 'status' => '1',
                 'email_verified_at' => now(),
                 'created_at' => now(),
@@ -58,19 +58,19 @@ class Data extends Seeder
                 'tanggal_mulai' => '2023-06-01',
                 'tanggal_selesai' => '2023-06-10',
                 'foto' => 'img/unsplash/materi4.jpg',
-                'harga' => 75000,
-                'deskripsi' => 'Canva adalah platform desain grafis berbasis web yang memungkinkan pengguna membuat berbagai jenis desain seperti poster, presentasi, logo, media sosial, kartu undangan, dan lainnya dengan mudah. Canva menyediakan ribuan template siap pakai, elemen desain (ikon, foto, font), serta fitur drag-and-drop, sehingga cocok digunakan oleh pemula maupun profesional tanpa perlu keahlian desain khusus',
+                'harga' => 50000,
+                'deskripsi' => 'Paket ini dirancang untuk membekali peserta dengan keterampilan dasar hingga menengah dalam menggunakan aplikasi perkantoran digital dari Microsoft Office. Program ini sangat relevan untuk pelajar, mahasiswa, guru, dan tenaga profesional yang ingin meningkatkan efisiensi kerja serta kemampuan pengolahan data dan dokumen secara modern dan sistematis.',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'nama' => 'Multi Media',
-                'materi' => 'Canva, Adobe Photoshop',
+                'materi' => 'Canva Dan Adobe Photoshop',
                 'tanggal_mulai' => '2023-07-01',
                 'tanggal_selesai' => '2023-07-10',
                 'foto' => 'img/unsplash/materi1.jpg',
-                'harga' => 500000,
-                'deskripsi' => 'HTML (HyperText Markup Language) adalah bahasa standar yang digunakan untuk membuat dan menyusun halaman web. HTML berfungsi untuk menentukan struktur dan isi dari sebuah halaman, seperti teks, gambar, tautan, tabel, dan elemen lainnya. ',
+                'harga' => 50000,
+                'deskripsi' => 'Paket ini merupakan program pelatihan multimedia yang dirancang untuk memperkenalkan serta mengasah keterampilan peserta dalam bidang desain grafis modern menggunakan dua platform populer: Canva dan Adobe Photoshop. Melalui pendekatan teori dan praktik, peserta akan dipandu untuk memahami prinsip dasar desain hingga mampu menghasilkan karya visual yang menarik dan profesional.',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -79,9 +79,9 @@ class Data extends Seeder
                 'materi' => 'HTML, CSS',
                 'tanggal_mulai' => '2023-08-01',
                 'tanggal_selesai' => '2023-08-10',
-                'foto' => 'img/unsplash/materi3.jpg',
-                'harga' => 25000,
-                'deskripsi' => 'CSS (Cascading Style Sheets) adalah bahasa pemrograman yang digunakan untuk mengatur tampilan dan gaya elemen dalam halaman web.',
+                'foto' => 'img/unsplash/materi6.jpg',
+                'harga' => 50000,
+                'deskripsi' => 'Paket ini merupakan program pelatihan dasar yang dirancang khusus bagi pemula yang ingin memasuki dunia pengembangan web. Dengan mempelajari HTML dan CSS, peserta akan memahami fondasi utama dalam membangun tampilan dan struktur halaman website secara mandiri, tanpa tergantung pada platform instan.',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]

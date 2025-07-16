@@ -101,6 +101,11 @@ class DataPendaftaranController extends Controller
         $data = Pendaftaran::with('lomba')->get();
         return view('cetak.cetak-pendaftaran', compact('data'));
     }
+    public function cetakadmin($id)
+    {
+        $pendaftaran = Pendaftaran::with('lomba')->findOrFail($id);
+        return view('admin.cetak', compact('pendaftaran'));
+    }
 
     public function update(Request $request, $id)
     {

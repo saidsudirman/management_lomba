@@ -75,6 +75,7 @@ Route::middleware(['role:admin'])->group(function () {
     Route::post('/data-pendaftaran', [DataPendaftaranController::class, 'store'])->name('pendaftaran.store');
     Route::put('/data-pendaftaran/{id}', [DataPendaftaranController::class, 'update'])->name('pendaftaran.update');
     Route::delete('/data-pendaftaran/{id}', [DataPendaftaranController::class, 'destroy'])->name('pendaftaran.destroy');
+    Route::get('/pendaftaran/{id}/cetak', [DataPendaftaranController::class, 'cetakadmin'])->name('pendaftaran.print');
 
     // Pembayaran route
     Route::get('/data-pembayaran', [PembayaranController::class, 'index'])->name('pembayaran.index');

@@ -17,7 +17,7 @@
                         href="/user"><i data-feather="user"></i><span>User</span></a>
                 </li>
                 <li class="dropdown {{ Request::path() === 'lomba' ? 'active' : '' }}"><a class="nav-link"
-                        href="/lomba"><i data-feather="hard-drive"></i><span>Materi</span></a>
+                        href="/lomba"><i data-feather="hard-drive"></i><span>Paket</span></a>
                 </li>
                 <li class="menu-header">User Lomba</li>
                 <li class="dropdown {{ Request::path() === 'data-pendaftaran' ? 'active' : '' }}"><a class="nav-link"

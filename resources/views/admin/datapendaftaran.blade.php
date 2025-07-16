@@ -56,7 +56,7 @@
                                             <td class="text-center">{{ $pen->nama_peserta }}</td>
                                             <td class="text-center">{{ $pen->email }}</td>
                                             <td class="text-center">{{ $pen->no_hp }}</td>
-                                            <td class="text_center">{{ $pen->jenis_kelamin}}</td>
+                                            <td class="text-center">{{ $pen->jenis_kelamin}}</td>
                                             <td class="text-center">{{ $pen->tanggal_lahir }}</td>
                                             <td class="text-center">{{ $pen->alamat }}</td>
                                             <td class="text-center">{{ $pen->asal_sekolah }}</td>
@@ -67,9 +67,11 @@
                                                 @elseif ($pen->status_pembayaran == '2')
                                                     Sudah Bayar
                                                 @endif
+                                            </td>
                                             <td class="text-center">{{ $pen->tanggal_pendaftaran }}</td>
                                             <td class="align-middle text-center">
                                                 <button data-toggle="modal" data-target="#editPendaftaranModal{{ $pen->id }}" class="btn btn-info">Edit</button>
+                                                <button data-toggle="modal" data-target="#printModal{{ $pen->id }}" class="btn btn-warning">Cetak</button>
                                                 <form id="deleteForm-{{ $pen->id }}" method="POST" action="{{ route('pendaftaran.destroy', $pen->id) }}" style="display:inline">
                                                     @csrf
                                                     @method('DELETE')
@@ -88,6 +90,7 @@
     </div>
 
     @foreach ($pendaftaran as $pen)
+        <!-- Modal Edit -->
         <div class="modal fade" id="editPendaftaranModal{{ $pen->id }}" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -146,6 +149,40 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal Cetak -->
+        <div class="modal fade" id="printModal{{ $pen->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Bukti Pendaftaran</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <button onclick="printDiv('print-area-{{ $pen->id }}')" class="btn btn-primary ml-3">Cetak</button>
+                    </div>
+                    <div class="modal-body" id="print-area-{{ $pen->id }}">
+                        <div class="print-container">
+                            <h3 class="text-center">BUKTI PENDAFTARAN</h3>
+                            <p><strong>Nama Peserta:</strong> {{ $pen->nama_peserta }}</p>
+                            <p><strong>Email:</strong> {{ $pen->email }}</p>
+                            <p><strong>No HP:</strong> {{ $pen->no_hp }}</p>
+                            <p><strong>Jenis Kelamin:</strong> {{ $pen->jenis_kelamin }}</p>
+                            <p><strong>Umur:</strong> {{ \Carbon\Carbon::parse($pen->tanggal_lahir)->age }} tahun</p>
+                            <p><strong>Alamat:</strong> {{ $pen->alamat }}</p>
+                            <p><strong>Asal Sekolah:</strong> {{ $pen->asal_sekolah }}</p>
+                            @if($pen->lomba)
+                            <p><strong>Lomba:</strong> {{ $pen->lomba->nama }}</p>
+                            <p><strong>Materi:</strong> {{ $pen->lomba->materi }}</p>
+                            <p><strong>Biaya:</strong> Rp {{ number_format($pen->lomba->harga, 0, ',', '.') }}</p>
+                            @endif
+                            <p><strong>Status Pembayaran:</strong> {{ $pen->status_pembayaran == '1' ? 'Belum Bayar' : 'Sudah Bayar' }}</p>
+                            <p><strong>Tanggal Pendaftaran:</strong> {{ \Carbon\Carbon::parse($pen->tanggal_pendaftaran)->format('d M Y H:i') }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     @endforeach
 
     <script>
@@ -163,6 +200,15 @@
                     document.getElementById('deleteForm-' + id).submit();
                 }
             });
+        }
+
+        function printDiv(divId) {
+            var printContents = document.getElementById(divId).innerHTML;
+            var originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            window.print();
+            document.body.innerHTML = originalContents;
+            location.reload();
         }
 
         $(document).ready(function () {

@@ -15,6 +15,7 @@ class Lomba extends Model
         'tanggal_mulai',
         'tanggal_selesai',
         'foto',
+        'materi',
         'deskripsi',
     ];
 

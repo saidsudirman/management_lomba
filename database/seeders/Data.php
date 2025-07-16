@@ -53,42 +53,35 @@ class Data extends Seeder
         // Seed tabel lomba
         DB::table('lomba')->insert([
             [
-                'nama' => 'Canva',
+                'nama' => 'Microsoft Office',
+                'materi' => 'Microsoft Word, Excel, PowerPoint',
                 'tanggal_mulai' => '2023-06-01',
                 'tanggal_selesai' => '2023-06-10',
-                'foto' => 'img/unsplash/materi1.jpg',
-                'harga' => 100000,
+                'foto' => 'img/unsplash/materi4.jpg',
+                'harga' => 75000,
                 'deskripsi' => 'Canva adalah platform desain grafis berbasis web yang memungkinkan pengguna membuat berbagai jenis desain seperti poster, presentasi, logo, media sosial, kartu undangan, dan lainnya dengan mudah. Canva menyediakan ribuan template siap pakai, elemen desain (ikon, foto, font), serta fitur drag-and-drop, sehingga cocok digunakan oleh pemula maupun profesional tanpa perlu keahlian desain khusus',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'nama' => 'HTML (HyperText Markup Language)',
+                'nama' => 'Multi Media',
+                'materi' => 'Canva, Adobe Photoshop',
                 'tanggal_mulai' => '2023-07-01',
                 'tanggal_selesai' => '2023-07-10',
-                'foto' => 'img/unsplash/materi2.jpg',
-                'harga' => 150000,
+                'foto' => 'img/unsplash/materi1.jpg',
+                'harga' => 500000,
                 'deskripsi' => 'HTML (HyperText Markup Language) adalah bahasa standar yang digunakan untuk membuat dan menyusun halaman web. HTML berfungsi untuk menentukan struktur dan isi dari sebuah halaman, seperti teks, gambar, tautan, tabel, dan elemen lainnya. ',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'nama' => 'CSS (Cascading Style Sheets)',
+                'nama' => 'Programming Dasar',
+                'materi' => 'HTML, CSS',
                 'tanggal_mulai' => '2023-08-01',
                 'tanggal_selesai' => '2023-08-10',
                 'foto' => 'img/unsplash/materi3.jpg',
-                'harga' => 200000,
+                'harga' => 25000,
                 'deskripsi' => 'CSS (Cascading Style Sheets) adalah bahasa pemrograman yang digunakan untuk mengatur tampilan dan gaya elemen dalam halaman web.',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'nama' => 'Microsoft Office ',
-                'tanggal_mulai' => '2023-09-01',
-                'tanggal_selesai' => '2023-09-10',
-                'foto' => 'img/unsplash/materi4.jpg',
-                'harga' => 175000,
-                'deskripsi' => 'Microsoft Office adalah sebuah paket aplikasi produktivitas buatan Microsoft yang terdiri dari berbagai program seperti Word, Excel, PowerPoint, Outlook, dan lainnya.',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]

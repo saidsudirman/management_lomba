@@ -26,7 +26,8 @@
                                 <thead>
                                     <tr class="text-center">
                                         <th>No</th>
-                                        <th>Nama</th>
+                                        <th>Paket</th>
+                                        <th>Materi</th>
                                         <th>Tanggal Mulai</th>
                                         <th>Tanggal Selesai</th>
                                         <th>Foto</th>
@@ -40,6 +41,7 @@
                                         <tr>
                                             <td class="text-center">{{ ++$no }}</td>
                                             <td class="text-center">{{ $lmb->nama }}</td>
+                                            <td class="text-center">{{ $lmb->materi }}</td>
                                             <td class="text-center">{{ $lmb->tanggal_mulai }}</td>
                                             <td class="text-center">{{ $lmb->tanggal_selesai }}</td>
                                             <td class="text-center">
@@ -87,8 +89,12 @@
                                         @csrf
                                         <div class="modal-body">
                                             <div class="form-group">
-                                                <label>Nama Materi</label>
+                                                <label>Nama Paket</label>
                                                 <input type="text" name="nama" class="form-control" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Nama Materi</label>
+                                                <input type="deskripsi" class="form-control" required>
                                             </div>
                                             <div class="form-group">
                                                 <label>Tanggal Mulai</label>

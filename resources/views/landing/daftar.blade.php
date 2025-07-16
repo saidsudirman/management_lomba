@@ -71,9 +71,9 @@
 
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="id_lomba">Pilih Materi</label>
+                <label for="id_lomba">Pilih Paket</label>
                 <select id="id_lomba" class="form-control @error('id_lomba') is-invalid @enderror" name="id_lomba" required>
-                    <option value="">Pilih Materi</option>
+                    <option value="">Pilih Paket</option>
                     @foreach ($lombas as $lomba)
                         <option value="{{ $lomba->id }}" {{ old('id_lomba') == $lomba->id ? 'selected' : '' }}>
                             {{ $lomba->nama }}

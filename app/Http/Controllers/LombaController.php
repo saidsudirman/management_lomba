@@ -24,6 +24,7 @@ class LombaController extends Controller
                 'tanggal_selesai' => 'required|date',
                 'foto' => 'required|image|mimes:jpeg,png,jpg|max:2048',
                 'harga' => 'required|integer',
+                'materi'=> 'required|string',
                 'deskripsi' => 'required',
             ]);
 
@@ -44,6 +45,7 @@ class LombaController extends Controller
             $lomba->tanggal_selesai = $request->input('tanggal_selesai');
             $lomba->foto = $path ?? null;
             $lomba->harga = $request->input('harga');
+            $lomba->materi = $request->input('materi');
             $lomba->deskripsi = $request->input('deskripsi');
             $lomba->save();
 
@@ -87,6 +89,7 @@ class LombaController extends Controller
                 'tanggal_selesai' => 'required|date',
                 'foto' => 'image|mimes:jpeg,png,jpg|max:2048',
                 'harga' => 'required|integer',
+                'materi'=> 'required|string',
                 'deskripsi' => 'required',
             ]);
 
@@ -113,6 +116,7 @@ class LombaController extends Controller
             $lomba->tanggal_mulai = $request->input('tanggal_mulai');
             $lomba->tanggal_selesai = $request->input('tanggal_selesai');
             $lomba->harga = $request->input('harga');
+            $lomba->materi = $request->input('materi');
             $lomba->deskripsi = $request->input('deskripsi');
             $lomba->save();
 

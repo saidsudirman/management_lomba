@@ -151,16 +151,14 @@
     <div class="letter-content">
         <p>Kepada Yth.</p>
         <p style="font-weight: bold;">{{ $pendaftaran->nama_peserta }}</p>
-        <p>{{ $pendaftaran->email }}</p>
-        <p>{{ $pendaftaran->no_hp }}</p>
 
         <br>
 
         <p>Dengan hormat,</p>
 
         @if($pendaftaran->lomba)
-        <p>Surat ini adalah konfirmasi pendaftaran Anda untuk Materi <strong>{{ $pendaftaran->lomba->nama }}</strong> yang
-            akan diselenggarakan Di Sekolah Anda
+        <p>Surat ini adalah konfirmasi pendaftaran Anda untuk Paket <strong>{{ $pendaftaran->lomba->nama }}</strong> Dengan Materi <strong>{{ $pendaftaran->lomba->materi }}</strong>
+            akan diselenggarakan Di {{ $pendaftaran->asal_sekolah }}
         </p>
         @endif
 
@@ -170,7 +168,9 @@
             <li><strong>Email:</strong> {{ $pendaftaran->email }}</li>
             <li><strong>No. HP:</strong> {{ $pendaftaran->no_hp }}</li>
             <li><strong>Jenis Kelamin:</strong> {{ $pendaftaran->jenis_kelamin }}</li>
-            <li><strong>Tanggal Lahir:</strong> {{ $pendaftaran->tanggal_lahir }}</li>
+            <li><strong>Umur:</strong> 
+                {{ \Carbon\Carbon::parse($pendaftaran->tanggal_lahir)->age }} tahun
+            </li>
             <li><strong>Alamat:</strong> {{ $pendaftaran->alamat }}</li>
             <li><strong>Asal Sekolah:</strong> {{ $pendaftaran->asal_sekolah }}</li>
             @if($pendaftaran->lomba)

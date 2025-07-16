@@ -11,7 +11,7 @@
     <div class="container">
         <!-- Header -->
         <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-            <p class="d-inline-block border rounded-pill py-1 px-4">Detail Materi</p>
+            <p class="d-inline-block border rounded-pill py-1 px-4">Detail Paket</p>
             <h1 class="mb-3">{{ $Lomba->nama }}</h1>
         </div>  
 
@@ -22,11 +22,13 @@
                     <img src="{{ asset($Lomba->foto ?? 'img/unsplash/default.jpg') }}"
                          class="card-img-top"
                          alt="{{ $Lomba->nama }}"
-                         style="height: 300px; object-fit: cover;">
+                         style="width: 100%; object-fit: cover;">
 
                     <div class="card-body mt-4">
                         <div class="text-muted mb-3">
-                            <i class="fas fa-user-md me-1"></i> {{ $Lomba->penulis }}
+                            <h3>{{ $Lomba->materi }}</h3>
+                            
+                            <b class="text-center">{{ 'Rp ' . number_format($Lomba->harga, 0, ',', '.') }}</b>
                         </div>
 
                         <div class="Lomba-konten">
@@ -39,28 +41,33 @@
 
         <!-- Lomba Terbaru -->
         @if($LombaTerbaru->count())
-        <div class="row mt-5">
-            <div class="col-12 text-center mb-4">
-                <h4>Lomba Lainnya</h4>
-            </div>
-
-            @foreach($LombaTerbaru as $a)
-            <div class="col-md-4 wow fadeInUp" data-wow-delay="0.{{ $loop->iteration }}s">
-                <div class="card h-100 article-card border-0 shadow-sm">
-                    <img src="{{ asset($a->foto ?? 'img/unsplash/default.jpg') }}"
-                         class="card-img-top"
-                         alt="{{ $a->nama }}"
-                         style="height: 200px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $a->nama }}</h5>
-                        <small class="text-muted"><i class="far fa-calendar-alt me-1"></i>{{ $a->created_at->format('d M Y') }}</small>
-                        <p class="card-text mt-2">{{ Str::limit(strip_tags($a->deskripsi), 100) }}</p>
-                        <a href="{{ route('materi.detail', $a->id) }}" class="btn btn-sm btn-outline-primary rounded-pill mt-2">Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-            @endforeach
+    <div class="row mt-5">
+        <div class="col-12 text-center mb-4">
+            <h4>Lomba Lainnya</h4>
         </div>
+
+        @foreach($LombaTerbaru->chunk(2) as $chunk)
+            <div class="row">
+                @foreach($chunk as $a)
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 article-card border-0 shadow-sm">
+                            <img src="{{ asset($a->foto ?? 'img/unsplash/default.jpg') }}"
+                                class="card-img-top"
+                                alt="{{ $a->nama }}"
+                                style="height: 200px; object-fit: cover;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $a->nama }}</h5>
+                                <small class="text-muted"><i class="far fa-calendar-alt me-1"></i>{{ $a->created_at->format('d M Y') }}</small>
+                                <p class="card-text mt-2">{{ Str::limit(strip_tags($a->deskripsi), 100) }}</p>
+                                <a href="{{ route('materi.detail', $a->id) }}" class="btn btn-sm btn-outline-primary rounded-pill mt-2">Baca Selengkapnya</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        @endforeach
+    </div> 
+
         @endif
     </div>
 </div>

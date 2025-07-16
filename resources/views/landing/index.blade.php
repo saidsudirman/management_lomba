@@ -66,7 +66,7 @@
 
 
     {{-- slider icon img --}}
-    <section id="ts-service-area" class="ts-service-area pb-0">
+    <section id="ts-service-area" class="ts-service-area pb-5 mb-5">
         <div class="container">
 
             <div class="my-center-slider my-icon-slider">
@@ -129,32 +129,11 @@
                         <h2 class="into-title">Tentang Kami</h2>
                         <h3 class="into-sub-title">IMPAS DIPA</h3>
                         <p class="my-sub-content">
-                            Ikatan Mahasiswa Papua Universitas Dipa Makassar (IMPAS DIPA) didirikan sebagai wadah kebersamaan, pengembangan diri, dan perjuangan mahasiswa Papua yang menempuh pendidikan di Universitas Dipa Makassar. Organisasi ini lahir dari semangat solidaritas dan kebutuhan akan ruang untuk saling mendukung di tengah perantauan, khususnya dalam menghadapi tantangan akademik, sosial, dan budaya.
-
-IMPAS DIPA berdiri dengan tujuan utama mempererat tali persaudaraan antar mahasiswa Papua, menjaga identitas budaya, serta mendorong partisipasi aktif dalam kegiatan intelektual dan kemasyarakatan di lingkungan kampus maupun di luar. Sejak awal berdirinya, IMPAS DIPA telah menjadi rumah bagi para mahasiswa untuk bertumbuh secara akademis dan sosial, serta menjadi jembatan antara mahasiswa Papua dan berbagai elemen di Universitas Dipa Makassar.
-
-
+                            Ikatan Mahasiswa Papua Universitas Dipa Makassar (IMPAS DIPA) didirikan sebagai wadah kebersamaan, pengembangan diri, dan perjuangan mahasiswa Papua yang menempuh pendidikan di Universitas Dipa Makassar. Organisasi ini lahir dari semangat solidaritas dan kebutuhan akan ruang untuk saling mendukung di tengah perantauan, khususnya dalam menghadapi tantangan akademik, sosial, dan budaya.IMPAS DIPA berdiri dengan tujuan utama mempererat tali persaudaraan antar mahasiswa Papua, menjaga identitas budaya, serta mendorong partisipasi aktif dalam kegiatan intelektual dan kemasyarakatan di lingkungan kampus maupun di luar. Sejak awal berdirinya, IMPAS DIPA telah menjadi rumah bagi para mahasiswa untuk bertumbuh secara akademis dan sosial, serta menjadi jembatan antara mahasiswa Papua dan berbagai elemen di Universitas Dipa Makassar.
                         </p>
                     </div><!-- Intro box end -->
-
-
-
                 </div><!-- Col end -->
-
-                <!-- <div class="col-lg-6 mt-4 mt-lg-4 justify-content-center">
-                        <h3 class="into-sub-title"> </h3>
-                        <div class="box-video"> -->
-
-                <!--<iframe width="420" height="315" title="Program Pengembangan keprofesian Guru. Pendidikan Jasmani, olahraga dan kesehatan" src="https://www.youtube.com/embed/gJ3g7xX9O-s"-->
-                <!--    allowfullscreen>-->
-                <!--</iframe>-->
-                <!-- <div class="video-placeholder" data-src="https://www.youtube.com"
-                                onclick="loadVideo(this)">
-                                <div class="video-title">Rencana Pelaksanaan Pembelajaran</div>
-                            </div> -->
-                <!--<div class="video-title">Balai Besar Guru Penggerak</div>-->
             </div>
-            <!--/ Accordion end -->
         </div><!-- Col end -->
 
 
@@ -265,14 +244,13 @@ IMPAS DIPA berdiri dengan tujuan utama mempererat tali persaudaraan antar mahasi
                         </div>
                     </div><!-- Service1 end -->
                 </div><!-- Col 1 end -->
-
-
             </div><!-- Main row end -->
-
-
         </div>
         <!--/ Container end -->
     </section><!-- Service end -->
+    <div>
+
+    </div>
         <div class="container mt-4">
             <div class="row justify-content-center">
                 @foreach ($lombas as $lomba)
@@ -284,7 +262,8 @@ IMPAS DIPA berdiri dengan tujuan utama mempererat tali persaudaraan antar mahasi
 
                             <div class="card-body">
                                 <h5 class="card-title">{{ $lomba->nama }}</h5>
-                                <h7 class="card-title">{{ $lomba->harga }}</h7>
+                                <b class="text-center">{{ 'Rp ' . number_format($lomba->harga, 0, ',', '.') }}</b>
+
 
                                 <div class="d-flex justify-content-center text-muted mb-2" style="gap: 10px;">
                                     <small><i class="far fa-calendar-alt"></i> {{ \Carbon\Carbon::parse($lomba->tanggal_mulai)->format('d M') }}</small>
@@ -304,7 +283,7 @@ IMPAS DIPA berdiri dengan tujuan utama mempererat tali persaudaraan antar mahasi
                 @endforeach
             </div>
         </div>
-            </div><!-- Main row end -->
+        </div><!-- Main row end -->
 
 
         </div>

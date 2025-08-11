@@ -4,7 +4,7 @@
             <div class="sidebar-brand">
                 <a href="/dashboard"> <img alt="image" src="{{ asset('img/unsplash/logo impas-01.png') }}"
                         class="header-logo" />
-                    <span class="logo-name">Lomba</span>
+                    <span class="logo-name">IMPAS</span>
                 </a>
             </div>
             <ul class="sidebar-menu">

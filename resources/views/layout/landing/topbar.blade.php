@@ -17,7 +17,7 @@
                                 <div class="info-box">
                                     <div class="info-box-content">
                                         <p class="info-box-title">Hubungi Kami</p>
-                                        <p class="info-box-subtitle">+62 823-1820-5704</p>
+                                        <p class="info-box-subtitle">+62 823-1820-</p>
                                     </div>
                                 </div>
                             </li>

@@ -17,7 +17,7 @@
                                 <div class="info-box">
                                     <div class="info-box-content">
                                         <p class="info-box-title">Hubungi Kami</p>
-                                        <p class="info-box-subtitle">+62 823-1820-5704</p>
+                                        <p class="info-box-subtitle"><a href="https://wa.me/6281256245241" target="_blank">+62 812-5624-5241(ITO)</a></p>
                                     </div>
                                 </div>
                             </li>
@@ -71,6 +71,7 @@
                                 
                                 <li class="nav-item"><a class="nav-link" href="{{ route('landing.index') }}">Profil</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('pendaftaran.create') }}">Daftar</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('user.gallery.index') }}">Galeri</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
 
 

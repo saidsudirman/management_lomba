@@ -54,7 +54,7 @@ class Data extends Seeder
         DB::table('lomba')->insert([
             [
                 'nama' => 'Microsoft Office',
-                'materi' => 'Microsoft Word, Excel, PowerPoint',
+                'materi' => 'Microsoft Word dan Excel',
                 'tanggal_mulai' => '2023-06-01',
                 'tanggal_selesai' => '2023-06-10',
                 'foto' => 'img/unsplash/materi4.jpg',

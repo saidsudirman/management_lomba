@@ -4,31 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>@yield('title')</title>
+    <title>@yield('title', 'Dashboard Admin')</title>
+    
     <!-- General CSS Files -->
-    <link rel="stylesheet" href="admin/assets/css/app.min.css">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/app.min.css') }}">
     <!-- Template CSS -->
-    <link rel="stylesheet" href="admin/assets/css/style.css">
-    <link rel="stylesheet" href="admin/assets/css/components.css">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/components.css') }}">
     <!-- Custom style CSS -->
-    <link rel="stylesheet" href="admin/assets/css/custom.css">
-    <link rel='shortcut icon' type='image/x-icon' href='img/unsplash/logo impas-01.png' />
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/custom.css') }}">
+    <link rel='shortcut icon' type='image/x-icon' href="{{ asset('img/unsplash/logo impas-01.png') }}" />
 
-    <!--jquery-->
+    <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-    <!--chartjs-->
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!--sweetalert-->
+    <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <!-- Font Awesome (Tambahan) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    @stack('styles')
 </head>
 
 <body>
-    <!--*******************
-        Preloader start
-    ********************-->
+    <!-- Preloader -->
     <div id="preloader">
         <div class="loader">
             <svg class="circular" viewBox="25 25 50 50">
@@ -37,32 +43,45 @@
             </svg>
         </div>
     </div>
-    <!--*******************
-        Preloader end
-    ********************-->
-    <div id="main-wrapper">
 
+    <div id="main-wrapper">
         @include('component.header')
         @include('component.sidebar')
         @yield('content')
     </div>
 
-    <!-- Footer content -->
+    <!-- Footer -->
     @include('component.footer')
 
     <!-- General JS Scripts -->
-    <script src="admin/assets/js/app.min.js"></script>
+    <script src="{{ asset('admin/assets/js/app.min.js') }}"></script>
     <!-- JS Libraies -->
-    <script src="admin/assets/bundles/apexcharts/apexcharts.min.js"></script>
+    <script src="{{ asset('admin/assets/bundles/apexcharts/apexcharts.min.js') }}"></script>
     <!-- Page Specific JS File -->
-    <script src="admin/assets/js/page/index.js"></script>
+    <script src="{{ asset('admin/assets/js/page/index.js') }}"></script>
     <!-- Template JS File -->
-    <script src="admin/assets/js/scripts.js"></script>
+    <script src="{{ asset('admin/assets/js/scripts.js') }}"></script>
     <!-- Custom JS File -->
-    <script src="admin/assets/js/custom.js"></script>
+    <script src="{{ asset('admin/assets/js/custom.js') }}"></script>
 
+    <!-- Bootstrap JS (Tambahan) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
+    <script>
+        // Hide preloader setelah halaman load
+        $(window).on('load', function() {
+            $('#preloader').fadeOut('slow');
+        });
 
+        // Auto dismiss alerts
+        $(document).ready(function() {
+            setTimeout(function() {
+                $('.alert').fadeOut('slow');
+            }, 5000);
+        });
+    </script>
+
+    @stack('scripts')
 </body>
 
 </html>

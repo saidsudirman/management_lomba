@@ -8,13 +8,13 @@
         </style>
     @endpush
     <div class="banner-carousel banner-carousel-1 mb-0">
-        <div class="banner-carousel-item" style="background-image:url({{ asset('img/unsplash/impas1.jpg') }})">
+        <div class="banner-carousel-item" style="background-image:url({{ asset('img/unsplash/impas4.jpeg') }})">
             <div class="slider-content">
                 <div class="container h-100">
                     <div class="row align-items-center h-100">
                         <div class="col-md-12 text-center">
-                            <h2 class="slide-title" data-animation-in="slideInLeft">Selamat Datang Peserta</h2>
-                            <h3 class="slide-sub-title" data-animation-in="slideInRight">IMPAS EDUCATION #13
+                            <h2 class="slide-title" data-animation-in="slideInLeft">Selamat Datang</h2>
+                            <h3 class="slide-sub-title" data-animation-in="slideInRight">IKATAN MAHASISWA PAPUA UNIVERSITAS DIPA (IMPAS DIPA) MAKASSAR
                             </h3>
                             <p data-animation-in="slideInLeft" data-duration-in="1.2">
                                 {{-- <a href="services.html" class="slider btn btn-primary">Our Services</a>
@@ -143,6 +143,37 @@
         </div><!-- Container end -->
     </section><!-- Feature are end -->
 
+
+    <!-- Struktur Kepengurusan -->
+<section id="struktur-kepengurusan" class="py-5">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <h2 class="into-title">Struktur Kepengurusan</h2>
+            <h3 class="into-sub-title">IMPAS DIPA MAKASSAR</h3>
+            <p class="text-muted">
+                Periode 2026 - 2027
+            </p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-11">
+
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-3">
+
+                        <img src="{{ asset('img/logo-kiri.png') }}"
+                            alt="Struktur Kepengurusan IMPAS DIPA"
+                            class="img-fluid rounded w-100">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
     <section id="ts-service-area" class="ts-service-area pb-0">
         <div class="container">
 
@@ -248,9 +279,7 @@
         </div>
         <!--/ Container end -->
     </section><!-- Service end -->
-    <div>
 
-    </div>
         <div class="container mt-4">
             <div class="row justify-content-center">
                 @foreach ($lombas as $lomba)

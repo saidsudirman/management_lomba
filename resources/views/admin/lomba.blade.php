@@ -9,7 +9,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Data Lomba</h4>
+                        <h4 class="card-title">Data Materi</h4>
 
                         <div class="text-right mb-3">
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">

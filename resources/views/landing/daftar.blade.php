@@ -1,8 +1,41 @@
 @extends('layout.landing.app')
 
 @section('content')
+
+        <div class="container mt-4">
+            <div class="row justify-content-center">
+                @foreach ($lombas as $lomba)
+                    <div class="col-md-4 mb-4 d-flex">
+                        <div class="card shadow-sm w-100 text-center" style="border: none; border-radius: 10px; overflow: hidden;">
+                            @if ($lomba->foto)
+                                <img src="{{ asset($lomba->foto) }}" alt="{{ $lomba->nama }}" style="width: 100%; height: 200px; object-fit: cover;">
+                            @endif
+
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $lomba->nama }}</h5>
+                                <b class="text-center">{{ 'Rp ' . number_format($lomba->harga, 0, ',', '.') }}</b>
+
+
+                                <div class="d-flex justify-content-center text-muted mb-2" style="gap: 10px;">
+                                    <small><i class="far fa-calendar-alt"></i> {{ \Carbon\Carbon::parse($lomba->tanggal_mulai)->format('d M') }}</small>
+                                    <small><i class="fas fa-arrow-right"></i></small>
+                                    <small><i class="far fa-calendar-check"></i> {{ \Carbon\Carbon::parse($lomba->tanggal_selesai)->format('d M Y') }}</small>
+                                </div>
+
+                                <p class="card-text" style="font-size: 0.9rem;">
+                                    {{ Str::limit($lomba->deskripsi, 100) }}
+                                </p>
+                            </div>
+                            <div class="card-footer bg-transparent border-top-0">
+                                <a href="{{ route('materi.detail', $lomba->id) }}" class="btn btn-link px-0">Baca Selengkapnya <i class="fas fa-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
 <div class="container py-5">
-    <h2 class="text-center mb-4">Pendaftaran IMPAS EDUCATION #13</h2>
+    <h2 class="text-center mb-4">Pendaftaran IMPAS EDUCATION #14</h2>
     
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -106,6 +139,10 @@
 
         <div class="alert alert-info mt-4">
             <p class="mb-0">Setelah mendaftar, Setalah itu Silahkan bawa kertas Pendaftaran ke stand dan juga membayar registrasi ikut kegiatan</p>
+        </div>
+
+        <div>
+            <p class="mb-0">Jika ada pertanyaan, silakan hubungi kami di <a href="https://wa.me/6282349503680" target="_blank">+62 823-4950-3680(MARVEL)</a></p>
         </div>
 
         <button type="submit" class="btn btn-primary btn-block mt-3">

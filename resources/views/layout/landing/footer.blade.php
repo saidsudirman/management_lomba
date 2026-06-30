@@ -29,7 +29,7 @@
                             <li>
                                 Jl.abdi Satya Bakti No No.AA.5, RT.001/RW.01, Tamalanrea, Kec. Tamalanrea, Kota Makassar, Sulawesi Selatan 90245
                             </li>
-                            <li>+62 823-1820-5704 </li>
+                            <li><a href="https://wa.me/6281256245241" target="_blank">+62 812-5624-5241(ITO)</a></li>
                             <li>impasdipa_official </li>
                         </ul>
                     </div>

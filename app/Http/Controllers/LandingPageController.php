@@ -51,4 +51,11 @@ class LandingPageController extends Controller
             "LombaTerbaru" => $LombaTerbaru
         ]);
     }
+
+    public function galeri()
+    {
+        return view('layout.landing.galeri', [
+            "title" => "Galeri Impas"
+        ]);
+    }
 }

@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
 use App\Http\Controllers\CetakPendaftaranController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataPendaftaranController;
 use App\Http\Controllers\ForgotPassword;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LombaController;
@@ -26,6 +28,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [LandingPageController::class, 'index'])->name('landing.index');
+Route::get('/galeri', [GalleryController::class, 'index'])->name('user.gallery.index');
+Route::get('/galeri/{slug}', [GalleryController::class, 'detail'])->name('gallery.detail');
 Route::get('/tambah-data-pendaftaran', [DataPendaftaranController::class, 'create'])->name('pendaftaran.create');
 Route::post('/tambah-data-pendaftarann', [DataPendaftaranController::class, 'storeLanding'])->name('pendaftaran.storeLanding');
 // Route::get('/data-pendaftarannya', [DataPendaftaranController::class, 'pendaftaranDetail'])->name('pendaftaran.indexlanding');
@@ -54,8 +58,6 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 
 //logout route
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
-// Group middleware untuk admin
 Route::middleware(['role:admin'])->group(function () {
     // User route
     Route::get('/user', [UserController::class, 'index'])->name('user.index');
@@ -63,6 +65,15 @@ Route::middleware(['role:admin'])->group(function () {
     Route::post('/user', [UserController::class, 'store'])->name('user.store');
     Route::put('/user/{id}', [UserController::class, 'update'])->name('user.update');
     Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+    
+    // ============ GALLERY ROUTES ============
+    // Album routes - CRUD lengkap
+    Route::resource('gallery', AdminGalleryController::class);
+    
+    // Photo routes
+    Route::post('/gallery/photo', [AdminGalleryController::class, 'storePhoto'])->name('gallery.photo.store');
+    Route::put('/gallery/photo/{id}', [AdminGalleryController::class, 'updatePhoto'])->name('gallery.photo.update');
+    Route::delete('/gallery/photo/{id}', [AdminGalleryController::class, 'destroyPhoto'])->name('gallery.photo.destroy');
 
     // Lomba route
     Route::get('/lomba', [LombaController::class, 'index'])->name('lomba.index');

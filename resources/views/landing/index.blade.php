@@ -101,7 +101,7 @@
                     <div class="ts-service-box">
                         <div class="ts-service-image-wrapper">
                             <img loading="lazy" style="width: 250px" class="img img-fluid text-center mx-auto"
-                                src="{{ asset('img/logo3.png') }}"
+                                src="{{ asset('img/logo3.jpeg') }}"
                                 alt="logo kami siap zi wbk">
                         </div>
                     </div><!-- Service1 end -->

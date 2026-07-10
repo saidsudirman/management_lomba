@@ -77,7 +77,7 @@ Route::middleware(['role:admin'])->group(function () {
 
     // Lomba route
     Route::get('/lomba', [LombaController::class, 'index'])->name('lomba.index');
-    Route::post('/lomba', [LombaController::class, 'create'])->name('lomba.create');
+    Route::post('/lomba/create', [LombaController::class, 'create'])->name('lomba.create');
     Route::post('/lomba/{id}', [LombaController::class, 'update'])->name('lomba.update');
     Route::delete('/lomba/{id}', [LombaController::class, 'destroy'])->name('lomba.destroy');
    

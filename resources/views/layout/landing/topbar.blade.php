@@ -17,7 +17,7 @@
                                 <div class="info-box">
                                     <div class="info-box-content">
                                         <p class="info-box-title">Hubungi Kami</p>
-                                        <p class="info-box-subtitle"><a href="https://wa.me/6281256245241" target="_blank">+62 812-5624-5241(ITO)</a></p>
+                                        <p class="info-box-subtitle"><a href="https://wa.me/6282193751625" target="_blank">+62 821-9375-1625</a></p>
                                     </div>
                                 </div>
                             </li>

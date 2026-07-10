@@ -286,7 +286,7 @@
                     <div class="col-md-4 mb-4 d-flex">
                         <div class="card shadow-sm w-100 text-center" style="border: none; border-radius: 10px; overflow: hidden;">
                             @if ($lomba->foto)
-                                <img src="{{ asset($lomba->foto) }}" alt="{{ $lomba->nama }}" style="width: 100%; height: 200px; object-fit: cover;">
+                                <img src="{{ asset($lomba->foto) }}" alt="{{ $lomba->nama }}" style="width: 100%; height: 400px; object-fit: cover;">
                             @endif
 
                             <div class="card-body">

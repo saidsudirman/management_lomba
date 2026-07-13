@@ -94,7 +94,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Nama Materi</label>
-                                                <input type="deskripsi" class="form-control" required>
+                                                <input type="deskripsi" name="materi" class="form-control" required>
                                             </div>
                                             <div class="form-group">
                                                 <label>Tanggal Mulai</label>

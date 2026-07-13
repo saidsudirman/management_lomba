@@ -17,52 +17,40 @@ class LombaController extends Controller
 
     public function create(Request $request)
     {
-        try {
-            $validator = Validator::make($request->all(), [
-                'nama' => 'required',
-                'tanggal_mulai' => 'required|date',
-                'tanggal_selesai' => 'required|date',
-                'foto' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-                'harga' => 'required|integer',
-                'materi'=> 'required|string',
-                'deskripsi' => 'required',
-            ]);
+        $request->validate([
+            'nama' => 'required|string',
+            'tanggal_mulai' => 'required|date',
+            'tanggal_selesai' => 'required|date',
+            'foto' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'harga' => 'required|numeric',
+            'materi' => 'required|string',
+            'deskripsi' => 'required|string',
+        ]);
 
-            if ($validator->fails()) {
-                throw new ValidationException($validator);
-            }
+        $path = null;
 
-            if ($request->hasFile('foto')) {
-                $foto = $request->file('foto');
-                $fileName = time() . '.' . $foto->getClientOriginalExtension();
-                $foto->move(public_path('foto'), $fileName);
-                $path = 'foto/' . $fileName;
-            }
-
-            $lomba = new Lomba;
-            $lomba->nama = $request->input('nama');
-            $lomba->tanggal_mulai = $request->input('tanggal_mulai');
-            $lomba->tanggal_selesai = $request->input('tanggal_selesai');
-            $lomba->foto = $path ?? null;
-            $lomba->harga = $request->input('harga');
-            $lomba->materi = $request->input('materi');
-            $lomba->deskripsi = $request->input('deskripsi');
-            $lomba->save();
-
-            return redirect()->route('lomba.index')->with('notification', [
-                'title' => 'Selamat!',
-                'text' => 'Data lomba berhasil ditambahkan',
-                'type' => 'success',
-            ]);
-        } catch (ValidationException $e) {
-            return redirect()->back()->withErrors($e->validator->getMessageBag()->toArray())->withInput();
-        } catch (\Exception $e) {
-            return redirect()->route('lomba.index')->with('notification', [
-                'title' => 'Oops!',
-                'text' => 'Terjadi kesalahan, coba lagi.',
-                'type' => 'error',
-            ]);
+        if ($request->hasFile('foto')) {
+            $foto = $request->file('foto');
+            $fileName = time() . '.' . $foto->getClientOriginalExtension();
+            $foto->move(public_path('foto'), $fileName);
+            $path = 'foto/' . $fileName;
         }
+
+        Lomba::create([
+            'nama' => $request->nama,
+            'tanggal_mulai' => $request->tanggal_mulai,
+            'tanggal_selesai' => $request->tanggal_selesai,
+            'foto' => $path,
+            'harga' => $request->harga,
+            'materi' => $request->materi,
+            'deskripsi' => $request->deskripsi,
+        ]);
+
+        return redirect()->route('lomba.index')->with('notification', [
+            'title' => 'Berhasil',
+            'text' => 'Data berhasil ditambahkan',
+            'type' => 'success'
+        ]);
     }
 
     public function store(Request $request)
@@ -89,7 +77,7 @@ class LombaController extends Controller
                 'tanggal_selesai' => 'required|date',
                 'foto' => 'image|mimes:jpeg,png,jpg|max:2048',
                 'harga' => 'required|integer',
-                'materi'=> 'required|string',
+                'materi' => 'required|string',
                 'deskripsi' => 'required',
             ]);
 

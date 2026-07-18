@@ -162,7 +162,7 @@
                 <div class="card border-0 shadow-sm">
                     <div class="card-body p-3">
 
-                        <img src="{{ asset('img/logo-kiri.png') }}"
+                        <img src="{{ asset('img/struktur1.png') }}"
                             alt="Struktur Kepengurusan IMPAS DIPA"
                             class="img-fluid rounded w-100">
 

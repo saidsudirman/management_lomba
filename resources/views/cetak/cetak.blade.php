@@ -184,7 +184,7 @@
             <li><strong>Tanggal Pendaftaran:</strong> {{ $pendaftaran->tanggal_pendaftaran->format('d M Y H:i') }}</li>
         </ul>
 
-        <p>Mohon untuk mempersiapkan diri dengan baik dan hadir pada Kegiatan IMPAS EDICATION #13 tersebut.</p>
+        <p>Mohon untuk mempersiapkan diri dengan baik dan hadir pada Kegiatan IMPAS EDICATION #14 tersebut.</p>
         <p>Terima kasih atas partisipasi Anda.</p>
 
         <div class="ttd-container">
